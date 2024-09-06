@@ -1,0 +1,79 @@
+/*
+author: Zowie Beha
+license: Copyright © 2024 Zowie Beha
+*/
+
+
+/* ===========
+Homepage content
+============== */
+main h1 {
+    font-size: xx-large;
+}
+
+main p {
+    font-size: large;
+}
+
+main h1 + p {
+    margin-bottom: 0.2em;
+}
+
+main > section p br {
+    margin-bottom: 1em;
+}
+
+main > section a {
+    color: #5b86f1;
+    transition-property: color;
+    transition-duration: 0.1s;
+}
+main > section a:hover {
+    color: #4c71d1;
+}
+
+main .flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 2.5em;
+    flex-wrap: wrap;
+}
+
+main section button {
+    padding: 0.5em 2em;
+    font-size: large;
+    font-family: "Rubik";
+    border-radius: 0.2em;
+}
+
+main section button.signup-btn:hover,
+main section button.login-btn:hover {
+    background-color: #18171c;
+    color: white;
+    cursor: pointer;
+    border: 2px solid rgb(241, 241, 241);
+}
+
+main section button.login-btn {
+    border: 2px solid #984e19;
+    background-color: orange;
+    color: rgb(0, 0, 0);
+}
+
+main section button.signup-btn {
+    border: 2px solid #d78c56;
+    background-color: transparent;
+    color: #ea8f4d;
+}
+
+/* ===========
+Responsive homepage content
+============== */
+
+@media screen and (max-width: 26.3753em) {
+    main section {
+        text-align: center;
+        padding: 0 0.2em;
+    }
+}

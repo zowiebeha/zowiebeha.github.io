@@ -8,9 +8,9 @@
         <meta name="author" content="Zowie Beha">
         
         <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="styles/homepage.css">
+        <link rel="stylesheet" href="styles/product_detail.css">
         <link rel="icon" type="image/x-icon" href="images/icon.ico">
-        <title>Pet Supply Co. - Homepage</title>
+        <title>Pet Supply Co. - Toy ducks (4 pack)</title>
     </head>
     <body>
         <header>
@@ -81,28 +81,56 @@
         </header>
         
         <main>
-            <section id="homepage">
-                <h1>Welcome to Pet Supply Co.</h1>
-                <p>
-                    The best place to shop for your pet needs.
-                </p>
-                
-                <p>
-                    <a href="products.html">
-                        View our products
-                    </a>
-                </p>
-                
-                <section class="flex-row">
-                    <button class="login-btn">
-                        Login
-                    </button>
+            <article id="product-1">
+                <div class="info">
+                    <h1>Toy ducks (4 pack):</h1>
+                    <div class="flex-row stars">
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                        <span>★</span>
+                    </div>
                     
-                    <button class="signup-btn">
-                        Register
-                    </button>
-                </section>
-            </section>
+                    <div class="flex-row">
+                        <p class="old-price">
+                            $8.95
+                        </p>
+                        <p class="price">
+                            $5.99
+                        </p>
+
+                    </div>
+                    <p>
+                        Toy duckies are a fun way to exercise your pet
+                        and provide them with a stimulating mental exercise.
+                        <br>
+                        They can be used to give your pet a fun break for their good behavior
+                        or as a way to bond with your pet.
+                        <br>
+                        Holiday sale! Buy now and get up to 67% off
+                    </p>
+                    
+                    <form action="" method="POST">
+                        <input id="add-to-cart" type="submit" value="Add to cart">
+                        <!-- Label is in the document for accessibility, but is hidden via CSS -->
+                        <label for="add-to-cart">
+                            Add item to cart
+                        </label>
+                    </form>
+                </div>
+                
+                <div class="sale">
+                    <img
+                    srcset="
+                    images/ducks-in-a-row/ducks-in-a-row200w.jpg 200w,
+                    images/ducks-in-a-row/ducks-in-a-row404w.jpg 404w,
+                    images/ducks-in-a-row/ducks-in-a-row615w.jpg 615w, 
+                    "
+                    src="images/ducks-in-a-row/ducks-in-a-row.jpg"
+                    alt="Yellow Duckies in Line on a Concrete Floor">
+                </div>
+            </article>
         </main>
         
         <footer>
@@ -120,6 +148,19 @@
                     <li>
                         <p>
                             Orange Favicon created by Zowie Beha
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Sale corner banner created by Zowie Beha
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Yellow Duckies in Line on a Concrete Floor by Pixabay via
+                            <a href="https://www.pexels.com/photo/yellow-duckies-in-line-on-a-concrete-floor-106144/">
+                                Pexels
+                            </a>
                         </p>
                     </li>
                 </ul>
