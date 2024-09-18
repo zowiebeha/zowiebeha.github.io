@@ -1,3 +1,3 @@
 # Zowie Beha's Portfolio Site
 
-Visit [the site](1zzowiebeha.github.io )
+Visit the [homepage](1zzowiebeha.github.io )
