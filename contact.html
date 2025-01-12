@@ -7,7 +7,7 @@
         <title>Zowie Beha</title>
         
         <link rel="stylesheet" href="./homepage_styles/style.css">
-        <link rel="stylesheet" href="./homepage_styles/home.css">
+        <link rel="stylesheet" href="./homepage_styles/contact.css">
     </head>
     <body>
         <div class="fluid-layout">
@@ -49,7 +49,7 @@
                 <div class="main-subheader">
                     <div class="page-title">
                         <h1>
-                            Home:
+                            Contact:
                         </h1>
                     </div>
                     
@@ -70,9 +70,38 @@
                 
                 <div class="horizontal-line"></div>
                 
-                <div id="particles-js"></div>
-                 <!-- <div id="tsparticles"></div> -->
-                  
+                <div class="p-05 contact-content">
+                    
+                    <p class="note">
+                        <strong>Note</strong>: The form does not send a request. It isn't connected to a backend service as of yet.
+                    </p>
+                    
+                    <form class="contact-form" action="#" method="POST">
+                        <input hidden type="text" name="csrf-token" value="*****">
+                        
+                        <label>
+                            Enter your email:
+                            <input required class="email-sender" type="email" name="sender" placeholder="johndoe@yahoo.com">
+                        </label>
+                        
+                        <label>
+                            Subject:
+                            <input required class="email-subject" type="text" name="subject" placeholder="Hello there">
+                        </label>
+                        
+                        <label>
+                            Enter a message:
+                            <textarea required cols="45" class="email-body" name="body" placeholder="I'm writing to inquire about..."></textarea>
+                        </label>
+                        
+                        <input type="submit" value="Send message">
+                    </form>
+                    
+                    <h2 class="mt-05">Form output:</h2>
+                    
+                    <div class="script-output"></div>
+                </div>
+                
                 <p class="last-modified">
                     Last modified <time datetime="2024-01-12">1/12/2025</time>
                 </p>
@@ -101,7 +130,7 @@
             </footer>
         </div>
         
-        <script src="./homepage_scripts/vendor/particles.min.js"></script>
-        <script src="./homepage_scripts/index-particlesjs.js"></script>
+        <script src="./homepage_scripts/vendor/jquery3.7.1.js"></script>
+        <script src="./homepage_scripts/contact-page.js"></script>
     </body>
 </html>

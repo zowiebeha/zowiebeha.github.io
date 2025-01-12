@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+/*
+author: Zowie Beha
+license: Copyright © 2024 Zowie Beha
+*/
+
+/* ===========
+Projects page content
+============== */
+
+/* tooltip */
+
+#floating-tooltip {
+    background-color: black;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: .3em;
+    
+    position: absolute;
+    
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.2s, opacity 0.1s;
+}
+
+#floating-tooltip-arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 0, 0);
+    transform: rotate(45deg);
+}
+
+main {
+    & .project-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2.375em;
+        
+        margin-top: 2.625em;
+        
+        
+        width: 82%;
+        
+        & .project {
+            width: fit-content;
+   
+            /* prevent flicker on hover by easing the color from transparent */
+            outline: 1px solid transparent;
+            padding: .4em;
+            border-radius: 4px;
+            
+            transition: .3s ease-out outline-color;
+            &:has(a:hover) {
+                outline: 1px solid rgb(187, 186, 186);
+            }
+            
+            & .project-thumbnail {
+                width: 13.438em;
+                height: 10.313em;
+                border-radius: 14px;
+                background-color: #1D1B2C;
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                & img {
+                    width: 12.5em;
+                    height: 9.375em;
+                    border-radius: 14px;
+                    object-fit:fill;
+                }
+            }
+            
+            & .icons {
+                width: 13.438em;
+                height: 1.5em;
+                border-radius: 5px;
+                background-color: #1D1B2C;
+                
+                margin-top: 0.688em;
+                margin-bottom: 0.938em;
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1.125em;
+                
+                & .icon {
+                    width: 2.125em;
+                    height: 2.125em;
+                    & img {
+                        width: 2.125em;
+                        height: 2.125em;
+                        object-fit: cover; 
+                    }
+                    /* jquery circle is kind of small. make it a bit larger to 
+                       be around the same size as the other icons
+                    */
+                    & img[title="jQuery"] {
+                        width: 2.255em;
+                        height: 2.255em;
+                    }
+                }
+            }
+            
+            & .info {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.3125em;
+                
+                & h2 {
+                    font-size: 1.25em;
+                    margin-top: 0;
+                    line-height: .75em;
+                }
+                & p {
+                    /* not sure why when I set the width equal to the project-thumbnail
+                    width, the p width isn't the same as the project-thumbnail. Weird...*/
+                    width: 19.438em;
+                    font-size: 0.688em;
+                }
+            }
+            
+            & a {
+                color: black;
+                text-decoration: none;
+                width: 100%;
+                height: 100%;
+                /* fill entire container instead of just inline 
+                makes the whole container (even spots without content)
+                clickable rather than just the children's element boxes
+                https://stackoverflow.com/questions/8160494/how-to-make-a-whole-div-clickable-in-html-and-css-without-javascript
+                */
+                display: block;
+            }
+        }
+    }
+}
