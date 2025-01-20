@@ -11,26 +11,21 @@ About page content
 
 /* vscode doesn't handle nested comment syntax highlighting nicely D: */
 /*
-br {
-     br has no effect on chrome/breaks without the following properties: 
-     content and display: block
-    css browser support can be tricky sometimes!
-    mayeb chrome is adhering more closely to some standardization that br
-    has no styling? idk 
-    content: "";
-    display: block;
-    margin-bottom: 1em;
-}
+
 */
 
-p {
-    margin-bottom: 1em;
-}
-
 div.horizontal-line {
-    margin-bottom: 3em;
+    margin-bottom: 3rem;
 }
 
 div.about p {
-    padding: .5em;
+    padding: .5rem;
+    width: 55%;
+    margin: 0 auto;
+    
+    /* make smaller as screen shrinks.
+    how to make bigger as screen grows, but clamp to a min? 
+    prob an algorithm with nested min/maxes 
+    inspired by bootstrap */
+    font-size: min(1.2rem, calc(1rem + .6vw));
 }
