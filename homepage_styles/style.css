@@ -282,6 +282,7 @@ main {
     p.last-modified {
         font-size: .7rem;
         margin-top: auto;
+        padding-top: 4em;
     }
 }
 
