@@ -5,6 +5,16 @@ author: Zowie Beha
 license: Copyright © 2024 Zowie Beha
 */
 
+/*
+Todo:
+
+Make it component based.
+Make it modular with SASS.
+Turn magic numbers into variables.
+Redo it all with REM instead of EM, since EM makes everything
+    dependent on the parent's font-size if I'm not mistaken..?
+*/
+
 /* ===========
 Projects page content
 ============== */
@@ -42,7 +52,7 @@ main {
         margin-top: 2.625em;
         
         
-        width: 82%;
+        width: calc(13.438em * 3.8);
         
         & .project {
             width: fit-content;
@@ -71,7 +81,7 @@ main {
                     width: 12.5em;
                     height: 9.375em;
                     border-radius: 14px;
-                    object-fit:fill;
+                    object-fit:cover;
                 }
             }
             
@@ -105,6 +115,17 @@ main {
                         height: 2.255em;
                     }
                 }
+                
+                /* why does setting width/height to the same value show the full svg,
+                whereas aspect-ratio cuts part of it off? */
+                & .icon--medium {
+                    width: 2.525em;
+                    height: 2.525em;
+                    & img {
+                        height: 2.525em;
+                        width: 2.525em;
+                    }
+                }
             }
             
             & .info {
@@ -130,12 +151,16 @@ main {
                 text-decoration: none;
                 width: 100%;
                 height: 100%;
+                
                 /* fill entire container instead of just inline 
                 makes the whole container (even spots without content)
                 clickable rather than just the children's element boxes
                 https://stackoverflow.com/questions/8160494/how-to-make-a-whole-div-clickable-in-html-and-css-without-javascript
                 */
-                display: block;
+                display: flex;
+                flex-direction: column;
+                /* center nested items */
+                align-items: center;
             }
         }
     }
