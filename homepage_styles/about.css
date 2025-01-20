@@ -12,11 +12,11 @@ About page content
 /* vscode doesn't handle nested comment syntax highlighting nicely D: */
 /*
 br {
-    /* br has no effect on chrome/breaks without the following properties: */
-    /* content and display: block
+     br has no effect on chrome/breaks without the following properties: 
+     content and display: block
     css browser support can be tricky sometimes!
     mayeb chrome is adhering more closely to some standardization that br
-    has no styling? idk */
+    has no styling? idk 
     content: "";
     display: block;
     margin-bottom: 1em;
