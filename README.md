@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Live Link:
 Visit this [link](https://1zzowiebeha.github.io/) to view the homepage.
 
@@ -8,4 +7,3 @@ Visit this [link](https://1zzowiebeha.github.io/) to view the homepage.
 # Zowie Beha's Portfolio Site
 
 Visit the [homepage](https://1zzowiebeha.github.io )
->>>>>>> 6f0e0f40fdc91ff78f145b5790aea54131ebf709
