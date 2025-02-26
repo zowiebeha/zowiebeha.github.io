@@ -180,11 +180,11 @@ main {
                 
             }
             
-            & p span:nth-child(1) { --i: 1 }
-            & p span:nth-child(2) { --i: 2 }
-            & p span:nth-child(3) { --i: 3 }
+            & p span > span:nth-child(1) { --i: 1 }
+            & p span > span:nth-child(2) { --i: 2 }
+            & p span > span:nth-child(3) { --i: 3 }
             
-            & p span:nth-child(n) {
+            & p span > span:nth-child(n) {
                 /* I guess this is needed for translation to work...
                 i guess I will need to read the guides again. it has to do with display mode */
                 display: inline-block;
@@ -202,10 +202,10 @@ main {
                 filter: drop-shadow(0 2px 4.3px #00000019);
             }
             
-            & small span:nth-child(1) { --i: 1 }
-            & small span:nth-child(2) { --i: 2 }
+            & small span > span:nth-child(1) { --i: 1 }
+            & small span > span:nth-child(2) { --i: 2 }
             
-            & small span:nth-child(n) {
+            & small span > span:nth-child(n) {
                 /* I guess this is needed for translation to work...
                 i guess I will need to read the guides again. it has to do with display mode */
                 display: inline-block;
