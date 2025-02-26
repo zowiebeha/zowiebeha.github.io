@@ -1,0 +1,44 @@
+make it with express js
+
+add all your projects
+when someone clicks on the thumbnail, it displays info about that item
+on a detail route
+projects, thumbnails, and technologies are added via a database
+
+Project
+    thumbnail path
+    technologies
+
+ProjectTechnologies
+    id
+    project
+    technology
+    
+    unique (project, technology) -- can't have multiple of same tech for same project
+
+Technology
+    icon path
+    name unique string
+
+projects to add:
+    all my old projects
+    go through my github and add all the stuff
+    
+    jesse's site
+    academic python projects
+    splashdrawtext
+    django app
+    python ctf code
+    python youtube downloader
+    old site portfolio
+    
+    blazor app web design example
+    
+future projects:
+    share each of these projects on linkedin with tags
+    
+    share portfolio on linkedin with tags
+    
+    implement a blog on the site
+    
+    
