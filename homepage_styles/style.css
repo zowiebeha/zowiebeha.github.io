@@ -317,10 +317,6 @@ footer {
         color: black;
     }
     
-    & .red-color {
-        color: rgb(255, 0, 55);
-    }
-    
     & p {
         /* for when the copyright text wraps */
         text-align: center;
