@@ -52,7 +52,16 @@ main {
         margin-top: 2.625em;
         
         
-        width: calc(13.438em * 3.8);
+        width: calc(13.438em * 3.8); /* magic number. this code def needs a rewrite */
+        
+        @media screen and (max-width: 51.25em) {
+            width: calc(13.438em * 3);
+        }
+        
+        @media screen and (max-width: 36.5em) {
+            flex-direction: column;
+            align-items: center;
+        }
         
         & .project {
             width: fit-content;

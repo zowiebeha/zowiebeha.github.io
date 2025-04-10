@@ -110,6 +110,10 @@ header {
                 }
             }
         }
+        
+        & li.r-padding {
+            padding: 0 .6rem 0 0;
+        }
     }
 }
 
@@ -267,7 +271,7 @@ main {
                 filter: drop-shadow(0 4px 4.8px #1d1b2c8a);
                 object-fit: cover;
                 
-                position:static;
+                position: static;
             }
         }
     }
