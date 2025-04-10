@@ -9,92 +9,16 @@ license: Copyright © 2025 Zowie Beha
 Contact page content
 ============== */
 
-.contact-content {
-    width: 100%;
-    height: 100%;
+/* to fix: why is it off-center? */
+.icon-set {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-        
-.note {
-    margin-top: .5rem;
-    width: 100%;
-    text-align: center;
-    text-wrap: wrap;
-}
-
-.p-05 {
-    padding: .1em;
-}
-
-form {
-    border: 2px solid #9794AD;
-    background-color: #1D1B2C;
-    color: white;
-    border-radius: 5px;
-    padding: .3em;
+    width: 15%;
+    justify-content: space-between;
+    outline: 1px solid red;
+    align-self: center;
     
-    width: fit-content;
-    margin-top: 2em;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: .3em;
-    
-    & label {
-        flex-grow: 1;
-        
-        display: flex;
-        flex-direction: column;
-        gap: .1em;
-    }
-    
-    & input,
-    & textarea {
-        font-size: 1rem;
-        padding: .3em;
-        
-        font-family: "Rubik";
-        font-weight: 500;
-    }
-    & input[type="submit"] {
-        width: 55%;
-        margin-top: 2px;
-        
-        font-family: "Rubik";
-        font-weight: 500;
-        cursor: pointer;
-    }
-    
-    @media screen and (max-width: 34em) {
-        width: 100%;
-        
-        & label {
-            font-size: 1.1rem;
-        }
-        & input,
-        & textarea {
-            font-size: 1.1rem;
-        }
-    }
-}
-
-.script-output {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: .3em;
-    
-    width: 0;
-    
-    transition: .4s all ease-out;
-    
-    & span {
-        display: block;
-        
-        &.bold {
-            font-weight: bold;
-        }
+    .icon-set__icon {
+        width: 4rem;
+        aspect-ratio: 1/1;
     }
 }

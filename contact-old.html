@@ -7,7 +7,7 @@
         <title>Zowie Beha</title>
         
         <link rel="stylesheet" href="./homepage_styles/base-style.css">
-        <link rel="stylesheet" href="./homepage_styles/contact.css">
+        <link rel="stylesheet" href="./homepage_styles/contact-old.css">
     </head>
     <body>
         <div class="fluid-layout">
@@ -76,18 +76,37 @@
                 
                 <div class="horizontal-line"></div>
                 
-                <div class="icon-set">
-                    <img
-                        class="icon-set__icon"
-                        src="./homepage_svg/github.svg"
-                        alt="A white OctoCat within a black circular background">
-                    <img
-                        class="icon-set__icon"
-                        src="./homepage_svg/linkedin.svg"
-                        alt="A white square with a rounded border cut out to display the text 'in' overlayed within a blue circle">
+                <div class="p-05 contact-content">
+                    
+                    <p class="note">
+                        <strong>Note</strong>: The form does not send a request. It isn't connected to a backend service as of yet.
+                    </p>
+                    
+                    <form class="contact-form" action="#" method="POST">
+                        <input hidden type="text" name="csrf-token" value="*****">
+                        
+                        <label>
+                            Enter your email:
+                            <input required class="email-sender" type="email" name="sender" placeholder="johndoe@yahoo.com">
+                        </label>
+                        
+                        <label>
+                            Subject:
+                            <input required class="email-subject" type="text" name="subject" placeholder="Hello there">
+                        </label>
+                        
+                        <label>
+                            Enter a message:
+                            <textarea required cols="45" class="email-body" name="body" placeholder="I'm writing to inquire about..."></textarea>
+                        </label>
+                        
+                        <input type="submit" value="Send message">
+                    </form>
+                    
+                    <h2 class="mt-05">Form output:</h2>
+                    
+                    <div class="script-output"></div>
                 </div>
-
-                
                 
                 <p class="last-modified">
                     Last modified <time datetime="2024-01-12">1/12/2025</time>
