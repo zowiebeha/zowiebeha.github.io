@@ -1,6 +1,9 @@
 # Live Link:
 Visit this [link](https://1zzowiebeha.github.io/) to view the homepage.
 
+# ❗Note to readers:
+The code is bad. It's not maintainable and needs a component framework like React or Angular to truly shine. BEM/Vanilla css links don't suffice, since they don't offer mixin nor non-blocking module support. I plan to re-work this via these technologies Soon..
+
 # Roadmap
 
 I plan to revamp this website to have a more maintainable codebase,
