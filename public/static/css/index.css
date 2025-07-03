@@ -1,0 +1,371 @@
+@charset "UTF-8";
+/*
+author: Zowie Beha
+license: Copyright © 2025 Zowie Beha
+*/
+/* ===========
+Fonts
+============== */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+/* ===========
+CSS Reset
+============== */
+html {
+  box-sizing: border-box;
+  font-family: "Rubik";
+  font-weight: 500;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===========
+Sticky header & Footer
+============== */
+.fluid-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ===========
+Header
+============== */
+header {
+  width: 100%;
+  /* flexbox likes max-height more than height for some reason.
+  look into this! */
+  max-height: 3em;
+  flex-grow: 1;
+  flex-shrink: 0;
+  background-color: #1D1B2C;
+  border-bottom: 4px solid #9794AD;
+  /* center the <ul> within the header */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+header ul {
+  width: 100%;
+  display: flex;
+  gap: 2.375em;
+  margin-right: 4.75em;
+}
+header ul li:first-child {
+  /* move all links to the left via how flex handles auto margins */
+  margin-left: auto;
+}
+@media screen and (max-width: 51.688em) {
+  header ul {
+    margin-right: 0;
+    justify-content: center;
+  }
+  header ul li:first-child {
+    margin-left: 0;
+  }
+}
+header ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.813em;
+  list-style-type: none;
+}
+header ul li a {
+  /* replace with medium-width rubik font */
+  color: white;
+  text-decoration: none;
+  transition: 0.2s color ease-out;
+}
+header ul li a:hover {
+  color: #b9c4f8;
+}
+header ul li.r-padding {
+  padding: 0 0.6rem 0 0;
+}
+
+/* ===========
+Main
+============== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 2;
+  flex-shrink: 1;
+  /* space between main content and footer if main content overflows outside of
+  fluid-layout */
+  padding-bottom: 1em;
+}
+main .main-subheader {
+  display: flex;
+  width: 100%;
+  /* win via cascade */
+}
+main .main-subheader > * {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-basis: 40%;
+  flex-grow: 2;
+  flex-shrink: 1;
+}
+main .main-subheader img.headshot {
+  max-width: 7.25em;
+  max-height: 7.25em;
+  border-radius: 100%;
+  border: 3px solid #1D1B2C;
+  filter: drop-shadow(0 4px 4.8px rgba(29, 27, 44, 0.5411764706));
+  object-fit: cover;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 20%;
+  position: relative;
+  top: -2.3em;
+}
+main .main-subheader .introduction {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 3.438em;
+}
+main .main-subheader .introduction p {
+  font-size: 2.25em;
+  /* max-height of fit-content doesn't work strangely */
+  max-height: 1.2em;
+  filter: drop-shadow(0 2px 1.65px rgba(0, 0, 0, 0.2431372549));
+}
+main .main-subheader .introduction p span > span:nth-child(1) {
+  --i: 1 ;
+}
+main .main-subheader .introduction p span > span:nth-child(2) {
+  --i: 2 ;
+}
+main .main-subheader .introduction p span > span:nth-child(3) {
+  --i: 3 ;
+}
+main .main-subheader .introduction p span > span:nth-child(n) {
+  /* I guess this is needed for translation to work...
+  i guess I will need to read the guides again. it has to do with display mode */
+  display: inline-block;
+  opacity: 0;
+  animation: 1.3s calc(var(--i) * 0.15s) slide-down-too-far forwards, 1s 1.15s slide-up-to-zero forwards;
+}
+main .main-subheader .introduction small {
+  font-size: 1em;
+  /* max-height of fit-content doesn't work strangely */
+  max-height: 1.2em;
+  filter: drop-shadow(0 2px 4.3px rgba(0, 0, 0, 0.0980392157));
+}
+main .main-subheader .introduction small span > span:nth-child(1) {
+  --i: 1 ;
+}
+main .main-subheader .introduction small span > span:nth-child(2) {
+  --i: 2 ;
+}
+main .main-subheader .introduction small span > span:nth-child(n) {
+  /* I guess this is needed for translation to work...
+  i guess I will need to read the guides again. it has to do with display mode */
+  display: inline-block;
+  opacity: 0;
+  animation: 0.8s ease-out calc(var(--i) * 0.2s + 0.9s) web-dev-slide-down forwards;
+}
+main .main-subheader .page-title {
+  order: 1;
+  display: flex;
+  justify-content: center;
+}
+main .main-subheader .page-title h1 {
+  max-width: fit-content;
+  filter: drop-shadow(0 2px 1.7px rgba(0, 0, 0, 0.2039215686));
+}
+@media screen and (max-width: 62.5em) {
+  main .main-subheader {
+    flex-direction: column;
+    align-items: center;
+  }
+  main .main-subheader h1 {
+    /* rem so that the unit isn't based on h1's size, rather 16px */
+    margin-bottom: 0.5rem;
+  }
+  main .main-subheader > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  main .main-subheader .introduction {
+    align-items: center;
+    /* strange. reset must be present for children to be centered,
+    yet the box model layout doesn't display any margin/padding in firefox... */
+    margin: 0;
+    padding: 0;
+    margin-top: 0.6em;
+  }
+  main .main-subheader img.headshot {
+    max-width: 7.25em;
+    max-height: 7.25em;
+    border-radius: 100%;
+    border: 3px solid #1D1B2C;
+    filter: drop-shadow(0 4px 4.8px rgba(29, 27, 44, 0.5411764706));
+    object-fit: cover;
+    position: static;
+  }
+}
+main .horizontal-line {
+  width: 96%;
+  opacity: 3%;
+  height: 4px;
+  background-color: #1D1B2C;
+}
+main p.last-modified {
+  font-size: 0.7rem;
+  margin-top: auto;
+  padding-top: 4em;
+}
+
+footer {
+  flex-grow: 1;
+  flex-shrink: 0;
+  background-color: #FCFCFC;
+  border-top: 2px solid #A5A3A3;
+  display: flex;
+  padding: 0.3em 0;
+  /* max-height due to flex (learn more from josh comeau) */
+  max-height: 6em;
+}
+@media screen and (max-width: 35.188em) {
+  footer {
+    flex-direction: column;
+    row-gap: 1em;
+    padding: 0.5em 0;
+    max-height: fit-content;
+  }
+}
+footer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 33%;
+  color: black;
+}
+footer p {
+  /* for when the copyright text wraps */
+  text-align: center;
+}
+footer p a {
+  color: black;
+  text-decoration: underline dashed rgb(170, 170, 170) 1px;
+  text-underline-offset: 2px;
+  transition: 0.2s color ease-out;
+}
+footer p a:hover {
+  color: #999d53;
+}
+
+/* ===========
+Keyframes
+============== */
+@keyframes slide-down-too-far {
+  from {
+    /* use translate instead of relative w/ top, as the text-align
+    property will cause unsmooth animation due to centering? dunno
+    maybe also a similar reason when working with flex children? */
+    /* https://stackoverflow.com/questions/65995712/css-animation-is-not-smooth-it-is-shaking */
+    transform: translate3d(0, -0.55em, 0);
+    opacity: 0;
+  }
+  /* 30% {
+      opacity: 1;
+  }
+
+  60% {
+      opacity: 1;
+      transform: translate3d(0, .15em, 0);
+  } */
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0.35em, 0);
+  }
+}
+@keyframes slide-up-to-zero {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes web-dev-slide-down {
+  /* use translate instead of relative w/ top, as the text-align
+  property will cause unsmooth animation due to centering? dunno
+  maybe also a similar reason when working with flex children? */
+  /* https://stackoverflow.com/questions/65995712/css-animation-is-not-smooth-it-is-shaking */
+  from {
+    opacity: 0;
+    transform: translate3d(0, -1.5rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, -0.2em, 0);
+  }
+}
+/* ===========
+Home page content
+============== */
+#particles-js {
+  width: 100%;
+  height: 10em; /* don't completely squish the footer */
+  border: 1px solid rgba(29, 27, 44, 0.1137254902);
+  margin-bottom: 2em;
+}
+
+#tsparticles {
+  width: 100%;
+  height: 100%; /* don't completely squish the footer */
+  border: 1px solid rgba(29, 27, 44, 0.1137254902);
+}
+
+div.horizontal-line {
+  width: 100%;
+}
+
+/* ===========
+About section
+============== */
+/* vscode doesn't handle nested comment syntax highlighting nicely D: */
+div.about p,
+div.about small {
+  padding: 0.5rem;
+  width: 55%;
+  margin: 0 auto;
+}
+
+div.about p {
+  /* make smaller as screen shrinks.
+  how to make bigger as screen grows, but clamp to a min? 
+  prob an algorithm with nested min/maxes 
+  inspired by bootstrap */
+  font-size: min(1.2rem, 1rem + 0.6vw);
+}
+
+div.about small {
+  display: block; /* set to block so we can alter width */
+  font-size: min(0.8rem, 1rem + 0.6vw);
+  width: 65%;
+}
+
+/*# sourceMappingURL=index.css.map */

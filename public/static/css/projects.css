@@ -1,0 +1,161 @@
+/*
+Todo:
+
+Make it component based.
+Turn magic numbers into variables.
+Redo it all with REM instead of EM, since EM makes everything
+    dependent on the parent's font-size.
+*/
+/* ===========
+Projects page content
+============== */
+/* tooltip */
+#floating-tooltip {
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  padding: 0.3em;
+  position: absolute;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.1s;
+}
+
+#floating-tooltip-arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(0, 0, 0);
+  transform: rotate(45deg);
+}
+
+main .project-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.375em;
+  margin-top: 2.625em;
+  width: 51.0644em; /* magic number. this code def needs a rewrite */
+}
+@media screen and (max-width: 51.25em) {
+  main .project-container {
+    width: 40.314em;
+  }
+}
+@media screen and (max-width: 36.5em) {
+  main .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+main .project-container .project {
+  width: fit-content;
+  /* prevent flicker on hover by easing the color from transparent */
+  outline: 1px solid transparent;
+  padding: 0.4em;
+  border-radius: 4px;
+  transition: 0.3s ease-out outline-color;
+}
+main .project-container .project:has(a:hover) {
+  outline: 1px solid rgb(187, 186, 186);
+}
+main .project-container .project .project-thumbnail {
+  width: 13.438em;
+  height: 10.313em;
+  border-radius: 14px;
+  background-color: #1D1B2C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .project-container .project .project-thumbnail img {
+  width: 12.5em;
+  height: 9.375em;
+  border-radius: 14px;
+  object-fit: cover;
+}
+main .project-container .project .icons {
+  width: 13.438em;
+  height: 1.5em;
+  border-radius: 5px;
+  background-color: #1D1B2C;
+  margin-top: 0.688em;
+  margin-bottom: 0.938em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.125em;
+  /* why does setting width/height to the same value show the full svg,
+  whereas aspect-ratio cuts part of it off? */
+  /* crappy place to put utility. i want to
+  rewrite this site to make it more modular cuz dis is P00 */
+}
+main .project-container .project .icons .icon {
+  width: 2.125em;
+  height: 2.125em;
+  /* jquery circle is kind of small. make it a bit larger to 
+     be around the same size as the other icons
+  */
+}
+main .project-container .project .icons .icon img {
+  width: 2.125em;
+  height: 2.125em;
+  object-fit: cover;
+}
+main .project-container .project .icons .icon img[title=jQuery] {
+  width: 2.255em;
+  height: 2.255em;
+}
+main .project-container .project .icons .icon--medium {
+  width: 2.525em;
+  height: 2.525em;
+}
+main .project-container .project .icons .icon--medium img {
+  height: 2.525em;
+  width: 2.525em;
+}
+main .project-container .project .icons .icon--long {
+  height: 2.525em;
+  width: 3em;
+}
+main .project-container .project .icons .icon--long img {
+  height: 2.525em;
+  width: 3em;
+  object-fit: contain;
+}
+main .project-container .project .icons.gap-09 {
+  gap: 0.9rem;
+}
+main .project-container .project .info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3125em;
+}
+main .project-container .project .info h2 {
+  font-size: 1.25em;
+  margin-top: 0;
+  line-height: 0.75em;
+}
+main .project-container .project .info p {
+  /* not sure why when I set the width equal to the project-thumbnail
+  width, the p width isn't the same as the project-thumbnail. Weird...*/
+  width: 19.438em;
+  font-size: 0.688em;
+}
+main .project-container .project a {
+  color: black;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  /* fill entire container instead of just inline 
+  makes the whole container (even spots without content)
+  clickable rather than just the children's element boxes
+  https://stackoverflow.com/questions/8160494/how-to-make-a-whole-div-clickable-in-html-and-css-without-javascript
+  */
+  display: flex;
+  flex-direction: column;
+  /* center nested items */
+  align-items: center;
+}
+
+/*# sourceMappingURL=projects.css.map */
