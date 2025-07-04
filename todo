@@ -1,0 +1,13 @@
+Make site cross-compatible with older MacOS desktops using old Safari browser versions.
+    Figure out which version the site breaks at.
+    
+Use BEM
+
+Use REM units
+
+Add a favicon
+
+Fix the "software developer" subtext accessibility issue
+
+Move the super "Zowie Beha" & subtext "software developer" to be under
+    ... the headshot image at the center of the screen.
