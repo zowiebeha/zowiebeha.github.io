@@ -1,11 +1,12 @@
 Make site cross-compatible with older MacOS desktops using old Safari browser versions.
-    Figure out which version the site breaks at.
-    
+    🚧 Figure out which version of MacOS / Safari the site breaks at.
+    SCSS's nested style feature should help with outdated browser cross-compatibility
+
 🚧 Use BEM
 
-Use SCSS variables for breakpoint values
+✅ Use SCSS variables for breakpoint values
 
-Use REM units
+🚧 Use REM units
 
 Add a favicon
 
@@ -13,5 +14,25 @@ Fix the "software developer" subtext accessibility issue
 
 Fix the horizontal scroll bar issue
 
-Move the super "Zowie Beha" & subtext "software developer" to be under
+✅ Move the super "Zowie Beha" & subtext "software developer" to be under
     ... the headshot image at the center of the screen.
+    
+-------
+
+Base:
+    think about and adjust subheader ordering if needed
+    Fix introduction-sequence accessibility
+Index:
+    fix messy index font size dependent on viewport width
+
+Attributions
+    fix attributions CSS link hover weird hacks, list width weird hack to achieve link effect
+
+Projects:
+    Improve accessibility for tooltip
+    Fix use of em units
+    ❗ Code review and remove / update as fit
+
+Validate all HTML documents
+
+Standardize all sizing and font units to common multiples
