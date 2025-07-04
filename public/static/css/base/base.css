@@ -36,41 +36,53 @@ Sticky header & Footer
 }
 
 /* ===========
-Header
+Nav bar
 ============== */
 #page-header .nav-list {
   background-color: #1D1B2C;
   border-bottom: 3px solid #cdcdd2;
   height: 3.1rem;
   width: 100%;
+  padding-right: 2.3rem;
   display: flex;
   gap: 2.3rem;
-  padding-right: 2.3rem;
+  /* Mobile navbar */
 }
-@media screen and (max-width: 51.688em) {
+@media screen and (max-width: 960px) {
   #page-header .nav-list {
-    margin-right: 0;
-    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    /* .nav__items' defined width on mobile will opt out of align-items: stretch. center the 
+       items on mobile as a fix. */
+    align-items: center;
   }
-  #page-header .nav-list .nav__item:first-child {
+  #page-header .nav-list .ml-auto {
     margin-left: 0;
   }
 }
 #page-header .nav-list .nav__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* center contents horizontally and vertically.
+  we could use padding on the paragraph instead. */
+  text-align: center;
   /*
    * `list-style-type: none` removes the element from the accessibility tree.
    * ::marker has a limited set of properties. `display` is not included,
    * however `font-size` is available, so we can use that to hide the list item markers.
    */
+  /* Mobile nav__item */
 }
 #page-header .nav-list .nav__item::marker {
   font-size: 0;
 }
 #page-header .nav-list .nav__item .nav__link {
   /* replace with medium-width rubik font */
+  line-height: 100%;
+  display: inline-block;
+  width: 100%;
+  /* increase link click area */
+  padding: 1rem 0;
   color: white;
   text-decoration: none;
   transition: 0.2s color ease-out;
@@ -78,10 +90,26 @@ Header
 #page-header .nav-list .nav__item .nav__link:hover {
   color: #b9c4f8;
 }
+@media screen and (max-width: 960px) {
+  #page-header .nav-list .nav__item {
+    width: 50%;
+  }
+}
 
 /* ===========
 Main
 ============== */
+#page-content {
+  /* A single line where we can use margin-top: auto; */
+  /* With grid, we would need an additional div to act as a single item,
+  which would let use use margin-top: auto;. More markup. Better than flex?
+  maybe ... I just don't like nested divs that serve little purpose.  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
+  height: 100%;
+}
 #page-content .content__subheader {
   display: flex;
   width: 100%;
@@ -108,7 +136,7 @@ Main
   position: relative;
   top: -2.3em;
 }
-#page-content .content__subheader .introduction {
+#page-content .content__subheader .intro-sequence {
   order: -1;
   display: flex;
   flex-direction: column;
@@ -116,41 +144,41 @@ Main
   justify-content: center;
   margin-left: 3.438em;
 }
-#page-content .content__subheader .introduction p {
+#page-content .content__subheader .intro-sequence p {
   font-size: 2.25em;
   /* max-height of fit-content doesn't work strangely */
   max-height: 1.2em;
   filter: drop-shadow(0 2px 1.65px rgba(0, 0, 0, 0.2431372549));
 }
-#page-content .content__subheader .introduction p span > span:nth-child(1) {
+#page-content .content__subheader .intro-sequence p span > span:nth-child(1) {
   --i: 1 ;
 }
-#page-content .content__subheader .introduction p span > span:nth-child(2) {
+#page-content .content__subheader .intro-sequence p span > span:nth-child(2) {
   --i: 2 ;
 }
-#page-content .content__subheader .introduction p span > span:nth-child(3) {
+#page-content .content__subheader .intro-sequence p span > span:nth-child(3) {
   --i: 3 ;
 }
-#page-content .content__subheader .introduction p span > span:nth-child(n) {
+#page-content .content__subheader .intro-sequence p span > span:nth-child(n) {
   /* I guess this is needed for translation to work...
   i guess I will need to read the guides again. it has to do with display mode */
   display: inline-block;
   opacity: 0;
   animation: 1.3s calc(var(--i) * 0.15s) slide-down-too-far forwards, 1s 1.15s slide-up-to-zero forwards;
 }
-#page-content .content__subheader .introduction small {
+#page-content .content__subheader .intro-sequence small {
   font-size: 1em;
   /* max-height of fit-content doesn't work strangely */
   max-height: 1.2em;
   filter: drop-shadow(0 2px 4.3px rgba(0, 0, 0, 0.0980392157));
 }
-#page-content .content__subheader .introduction small span > span:nth-child(1) {
+#page-content .content__subheader .intro-sequence small span > span:nth-child(1) {
   --i: 1 ;
 }
-#page-content .content__subheader .introduction small span > span:nth-child(2) {
+#page-content .content__subheader .intro-sequence small span > span:nth-child(2) {
   --i: 2 ;
 }
-#page-content .content__subheader .introduction small span > span:nth-child(n) {
+#page-content .content__subheader .intro-sequence small span > span:nth-child(n) {
   /* I guess this is needed for translation to work...
   i guess I will need to read the guides again. it has to do with display mode */
   display: inline-block;
@@ -181,7 +209,7 @@ Main
     justify-content: center;
     flex-grow: 1;
   }
-  #page-content .content__subheader .introduction {
+  #page-content .content__subheader .intro-sequence {
     align-items: center;
     /* strange. reset must be present for children to be centered,
     yet the box model layout doesn't display any margin/padding in firefox... */
@@ -241,8 +269,9 @@ div.hr {
 p.last-modified {
   font-size: 0.7rem;
   text-align: center;
-  padding-top: 4em; /* padding if page-content fills enough free space to reach last-modified */
-  align-self: end;
+  padding-top: 4em;
+  /* padding if page-content fills enough free space to reach last-modified */
+  margin-top: auto;
 }
 
 /* ===========
@@ -278,8 +307,8 @@ Keyframes
 }
 @keyframes web-dev-slide-down {
   /* use translate instead of relative w/ top, as the text-align
-  property will cause unsmooth animation due to centering? dunno
-  maybe also a similar reason when working with flex children? */
+      property will cause unsmooth animation due to centering? dunno
+      maybe also a similar reason when working with flex children? */
   /* https://stackoverflow.com/questions/65995712/css-animation-is-not-smooth-it-is-shaking */
   from {
     opacity: 0;
@@ -296,6 +325,10 @@ Keyframes
 
 .ml-auto {
   margin-left: auto;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*# sourceMappingURL=base.css.map */
