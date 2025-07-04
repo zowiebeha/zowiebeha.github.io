@@ -238,6 +238,7 @@ Main
   align-items: center;
   justify-items: center;
   padding: 0.6rem 0;
+  /* Mobile column layout for page-footer */
 }
 @media screen and (max-width: 35.188em) {
   #page-footer {
@@ -249,13 +250,13 @@ Main
   /* For when the copyright text wraps: */
   text-align: center;
 }
-#page-footer p a.footer__link {
+#page-footer a.footer__link {
   color: black;
   text-decoration: underline dashed rgb(170, 170, 170) 1px;
   text-underline-offset: 2px;
   transition: 0.2s color ease-out;
 }
-#page-footer p a.footer__link:hover {
+#page-footer a.footer__link:hover {
   color: #999d53;
 }
 
@@ -286,14 +287,6 @@ Keyframes
     transform: translate3d(0, -0.55em, 0);
     opacity: 0;
   }
-  /* 30% {
-      opacity: 1;
-  }
-
-  60% {
-      opacity: 1;
-      transform: translate3d(0, .15em, 0);
-  } */
   to {
     opacity: 1;
     transform: translate3d(0, 0.35em, 0);
