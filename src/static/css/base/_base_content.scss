@@ -45,7 +45,15 @@ header {
             justify-content: center;
 
             height: 2.813em;
-            list-style-type: none;
+            
+            /*
+             * `list-style-type: none` removes the element from the accessibility tree.
+             * ::marker has a limited set of properties. `display` is not included,
+             * however `font-size` is available, so we can use that to hide the list item markers.
+             */
+            &::marker {
+                font-size: 0;
+            }
             
             & a {
                 /* replace with medium-width rubik font */

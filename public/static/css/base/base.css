@@ -76,7 +76,14 @@ header ul li {
   align-items: center;
   justify-content: center;
   height: 2.813em;
-  list-style-type: none;
+  /*
+   * `list-style-type: none` removes the element from the accessibility tree.
+   * ::marker has a limited set of properties. `display` is not included,
+   * however `font-size` is available, so we can use that to hide the list item markers.
+   */
+}
+header ul li::marker {
+  font-size: 0;
 }
 header ul li a {
   /* replace with medium-width rubik font */
