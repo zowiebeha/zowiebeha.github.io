@@ -27,25 +27,26 @@ div.horizontal-line {
 About section
 ============== */
 
-/* vscode doesn't handle nested comment syntax highlighting nicely D: */
-
-div.about p,
-div.about small {
-    padding: .5rem;
-    width: 55%;
-    margin: 0 auto;
-}
-
-div.about p {
-    /* make smaller as screen shrinks.
-    how to make bigger as screen grows, but clamp to a min? 
-    prob an algorithm with nested min/maxes 
-    inspired by bootstrap */
-    font-size: min(1.2rem, calc(1rem + .6vw));
-}
-div.about small {
-    display: block; /* set to block so we can alter width */
+.content__details {
+    p,
+    small {
+        padding: .5rem;
+        width: 55%;
+        margin: 0 auto;
+    }
     
-    font-size: min(.8rem, calc(1rem + .6vw));
-    width: 65%;
+    p {
+        /* make smaller as screen shrinks.
+        how to make bigger as screen grows, but clamp to a min? 
+        prob an algorithm with nested min/maxes 
+        inspired by bootstrap */
+        font-size: min(1.2rem, calc(1rem + .6vw));
+    }
+    
+    small {
+        display: block; /* set to block so we can alter width */
+        
+        font-size: min(.8rem, calc(1rem + .6vw));
+        width: 65%;
+    }
 }

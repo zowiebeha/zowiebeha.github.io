@@ -2,49 +2,31 @@
 Header
 ============== */
 
-header {
-    width: 100%;
-    /* flexbox likes max-height more than height for some reason.
-    look into this! */ 
-    max-height: 3em;
+#page-header {
+    & .nav-list {
+        background-color: #1D1B2C;
+        border-bottom: 3px solid #cdcdd2;
     
-    flex-grow: 1;
-    flex-shrink: 0;
-    
-    background-color: #1D1B2C;
-    border-bottom: 4px solid #9794AD;
-    
-    /* center the <ul> within the header */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    
-    & ul {
+        height: 3.1rem;
         width: 100%;
+        
         display: flex;
-        gap: 2.375em;
+        gap: 2.3rem;
         
-        margin-right: 4.75em;
-        
-        & li:first-child {
-            /* move all links to the left via how flex handles auto margins */
-            margin-left: auto;
-        }
+        padding-right: 2.3rem;
         
         @media screen and (max-width: 51.688em) {
-            & li:first-child {
+            & .nav__item:first-child {
                 margin-left: 0;
             }
             margin-right: 0;
             justify-content: center;
         }
         
-        & li {
+        & .nav__item {
             display: flex;
             align-items: center;
             justify-content: center;
-
-            height: 2.813em;
             
             /*
              * `list-style-type: none` removes the element from the accessibility tree.
@@ -55,7 +37,7 @@ header {
                 font-size: 0;
             }
             
-            & a {
+            & .nav__link {
                 /* replace with medium-width rubik font */
            
                 color: white;
@@ -67,31 +49,15 @@ header {
                 }
             }
         }
-        
-        & li.r-padding {
-            padding: 0 .6rem 0 0;
-        }
     }
 }
-
 
 /* ===========
 Main
 ============== */
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    flex-grow: 2;
-    flex-shrink: 1;
-    
-    /* space between main content and footer if main content overflows outside of
-    fluid-layout */
-    padding-bottom: 1em;
-    
-    & .main-subheader {
+#page-content {
+    & .content__subheader {
         display: flex;
         
         width: 100%;
@@ -105,7 +71,7 @@ main {
             flex-shrink: 1;
         }
         
-        & img.headshot {
+        & .img--headshot {
             max-width: 7.25em;
             max-height: 7.25em;
             border-radius: 100%;
@@ -232,62 +198,39 @@ main {
             }
         }
     }
-
-    & .horizontal-line {
-        width: 96%;
-        opacity: 3%;
-        height: 4px;
-        background-color: #1D1B2C;
-    }
-    
-    p.last-modified {
-        font-size: .7rem;
-        margin-top: auto;
-        padding-top: 4em;
-    }
 }
 
-footer {
-    flex-grow: 1;
-    flex-shrink: 0;
+// Completed
+#page-footer {    
+    /* space between page-content and page-footer if page-content
+       contents fill to touch page-footer's top box face */
+    margin-top: 1rem;
     
-    background-color: #FCFCFC;
-    border-top: 2px solid #A5A3A3;
+    border-top: 2px solid #c4c4c4;
    
-    display: flex;
-    padding: .3em 0;
-    /* max-height due to flex (learn more from josh comeau) */
-    max-height: 6em;
+    display: grid;
+    grid: 1fr / repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    
+    padding: .6rem 0;
     
     @media screen and (max-width: 35.188em) {
-        flex-direction: column;
+        grid: repeat(3, 1fr) / 1fr;
         row-gap: 1em;
-        padding: .5em 0;
-        
-        max-height: fit-content;
-    }
-    
-    & > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        flex-grow: 1;  
-        flex-basis: 33%;
-        color: black;
     }
     
     & p {
-        /* for when the copyright text wraps */
+        /* For when the copyright text wraps: */
         text-align: center;
         
-        & a {
+        & a.footer__link {
             color: black;
-            text-decoration: underline dashed rgb(170, 170, 170) 1px;
+            text-decoration: underline dashed rgb(170 170 170) 1px;
             text-underline-offset: 2px;
                 
             transition: .2s color ease-out;
+            
             &:hover {
                 color: #999d53;
             }
@@ -295,6 +238,21 @@ footer {
     }
 }
 
+div.hr {
+    width: 96%;
+    opacity: 3%;
+    height: 4px;
+    background-color: #1D1B2C;
+}
+
+p.last-modified {
+    font-size: .7rem;
+    text-align: center;
+    padding-top: 4em; /* padding if page-content fills enough free space to reach last-modified */
+
+    // margin-top: auto;
+    align-self: end; // why no work?
+}
 
 /* ===========
 Keyframes

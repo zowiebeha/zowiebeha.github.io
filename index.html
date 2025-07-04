@@ -18,27 +18,29 @@
     </head>
     <body>
         <div class="fluid-layout">
-            <header>
+            <header id="page-header">
                 <nav>
-                    
-                    <ul>                    
-                        <li>
+                    <ul class="nav-list">                    
+                        <li class="nav__item ml-auto">
                             <p>
-                                <a href="index.html">
+                                <a class="nav__link"
+                                   href="index.html">
                                     home
                                 </a>
                             </p>
                         </li>
-                        <li>
+                        <li class="nav__item">
                             <p>
-                                <a href="projects.html">
+                                <a class="nav__link"
+                                   href="projects.html">
                                     projects
                                 </a>
                             </p>
                         </li>
-                        <li class="r-padding">
+                        <li class="nav__item pr-06">
                             <p>
-                                <a target="_blank" href="./public/media/Zowie Beha Resume.pdf">
+                                <a class="nav__link"
+                                   target="_blank" href="./public/media/Zowie Beha Resume.pdf">
                                     resume ⬇️
                                 </a>
                             </p>
@@ -47,15 +49,15 @@
                 </nav>
             </header>
             
-            <main>
-                <div class="main-subheader">
+            <main id="page-content">
+                <div class="content__subheader">
                     <div class="page-title">
                         <h1>
                             Home:
                         </h1>
                     </div>
                     
-                    <img class="headshot" src="./public/static/img/headshot.jpg" alt="A photo of Zowie">
+                    <img class="img--headshot" src="./public/static/img/headshot.jpg" alt="A photo of Zowie">
 
                     <div class="introduction">
                         <p aria-label="hi, i'm Zowie">
@@ -74,12 +76,13 @@
                     </div>
                 </div>
                 
-                <div class="horizontal-line"></div>
+                <div class="hr"></div>
                 
+                <!-- ParticlesJS -->
                 <div id="particles-js"></div>
-
                   
-                <div class="about">
+                <!-- ParticlesJS -->
+                <div class="content__details">
                     <p>
                         I fell in love with programming from a very young age.
                     </p>
@@ -111,26 +114,20 @@
                 </p>
             </main>
             
-            <footer>
-                <div>
-                    <p>
-                        <a href="attributions.html">
-                            attributions
-                        </a>
-                    </p>
-                </div>
+            <footer id="page-footer">
+                <p>
+                    <a class="footer__link" href="attributions.html">
+                        attributions
+                    </a>
+                </p>                
+
+                <p>
+                    copyright &copy;2025 Zowie Beha
+                </p>
                 
-                <div>
-                    <p>
-                        copyright &copy;2025 Zowie Beha
-                    </p>
-                </div>
-                   
-                <div>
-                    <p>
-                        i ❣️ code
-                    </p>
-                </div>
+                <p>
+                    i ❣️ code
+                </p>
             </footer>
         </div>
         
