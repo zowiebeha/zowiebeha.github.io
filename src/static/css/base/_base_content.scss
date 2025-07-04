@@ -14,19 +14,19 @@ Nav bar
 
     display: flex;
     gap: 2.3rem;
-    
-    /* Mobile navbar */
+
+    /* Mobile column layout for navbar */
     @media screen and (max-width: base_variables.$breakpoint-medium) {
         height: auto;
         flex-direction: column;
         gap: 1rem;
-        
-        padding: 1rem 0;
-        
+
+        padding-right: 0;
+
         .ml-auto {
             margin-left: 0;
         }
-        
+
         /* .nav__items' defined width on mobile will opt out of align-items: stretch. center the 
            items on mobile as a fix. */
         align-items: center;
@@ -36,7 +36,7 @@ Nav bar
         /* center contents horizontally and vertically.
         we could use padding on the paragraph instead. */
         text-align: center;
-                    
+
         /*
          * `list-style-type: none` removes the element from the accessibility tree.
          * ::marker has a limited set of properties. `display` is not included,
@@ -49,13 +49,13 @@ Nav bar
         .nav__link {
             /* replace with medium-width rubik font */
             line-height: 100%;
-            
+
             display: inline-block;
             width: 100%;
-            
+
             /* increase link click area */
             padding: 1rem 0;
-                    
+
             color: white;
             text-decoration: none;
 
@@ -65,10 +65,23 @@ Nav bar
                 color: #b9c4f8;
             }
         }
-        
+
         /* Mobile nav__item */
         @media screen and (max-width: base_variables.$breakpoint-medium) {
             width: 50%;
+        }
+    }
+
+    /* Mobile */
+    @media screen and (max-width: base_variables.$breakpoint-medium) {
+
+        /* simulate padding for top/bottom of nav-list, but make it clickable area */
+        .nav__item:first-of-type .nav__link {
+            padding-top: 2rem;
+        }
+
+        .nav__item:last-of-type .nav__link {
+            padding-bottom: 2rem;
         }
     }
 }
@@ -90,100 +103,112 @@ Main
     height: 100%;
 
     .content__subheader {
-        display: flex;
+        // Grid is so much better than child flex properties for
+        // shrinking/scaling/item sizes :D
+        // I will always cherish my old reliable flexbox though
+        display: grid;
+        grid: 1fr / 1fr auto 1fr;
+        align-items: center;
+        justify-items: center;
 
         width: 100%;
 
-        > * {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-basis: 40%;
-            flex-grow: 2;
-            flex-shrink: 1;
-        }
-
         .img--headshot {
-            max-width: 7.25em;
-            max-height: 7.25em;
+            max-width: 7.25rem;
+            max-height: 7.25rem;
             border-radius: 100%;
             border: 3px solid #1D1B2C;
 
             filter: drop-shadow(0 4px 4.8px #1d1b2c8a);
             object-fit: cover;
 
-            flex-grow: 1;
-            flex-shrink: 0;
-            flex-basis: 20%;
-
             position: relative;
-            top: -2.3em;
+            top: -2.3rem;
+
+            /* Mobile headshot image */
+            // @media screen and (max-width: base_variables.$breakpoint-medium) {
+                top: 0;
+                margin-top: .5rem;
+            // }
         }
 
+
         .intro-sequence {
+            justify-self: left;
             order: -1;
 
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
+            margin-left: 3.438rem;
 
-            margin-left: 3.438em;
+            /* Mobile intro-sequence */
+            // @media screen and (max-width: base_variables.$breakpoint-medium) {
+                margin-left: 0;
+                justify-self: center;
+                order: 0;
+            // }
 
-            p {
+            .intro-sequence__name {
                 font-size: 2.25em;
                 /* max-height of fit-content doesn't work strangely */
                 max-height: 1.2em;
 
                 filter: drop-shadow(0 2px 1.65px #0000003e);
-
             }
 
-            p span>span:nth-child(1) {
+            // look into using sass to make this nicer
+            .intro-sequence__name span>span:nth-child(1) {
                 --i: 1
             }
 
-            p span>span:nth-child(2) {
+            .intro-sequence__name span>span:nth-child(2) {
                 --i: 2
             }
 
-            p span>span:nth-child(3) {
+            .intro-sequence__name span>span:nth-child(3) {
                 --i: 3
             }
 
-            p span>span:nth-child(n) {
+            .intro-sequence__name span>span:nth-child(n) {
                 /* I guess this is needed for translation to work...
                 i guess I will need to read the guides again. it has to do with display mode */
                 display: inline-block;
 
                 opacity: 0;
-                animation: 1.3s calc(var(--i) * .15s) slide-down-too-far forwards,
+                animation:
+                    1.3s calc(var(--i) * .15s) slide-down-too-far forwards,
                     1s calc(3 * .15s + .7s) slide-up-to-zero forwards;
             }
 
-            small {
+            .intro-sequence__career {
                 font-size: 1em;
                 /* max-height of fit-content doesn't work strangely */
                 max-height: 1.2em;
 
                 filter: drop-shadow(0 2px 4.3px #00000019);
+
+                /* Mobile intro-sequence__career */
+                // @media screen and (max-width: base_variables.$breakpoint-medium) {
+                    // Center instead of default left inline alignment
+                    display: flex;
+                    justify-content: center;
+                // }
             }
 
-            small span>span:nth-child(1) {
+            .intro-sequence__career span>span:nth-child(1) {
                 --i: 1
             }
 
-            small span>span:nth-child(2) {
+            .intro-sequence__career span>span:nth-child(2) {
                 --i: 2
             }
 
-            small span>span:nth-child(n) {
+            .intro-sequence__career span>span:nth-child(n) {
                 /* I guess this is needed for translation to work...
                 i guess I will need to read the guides again. it has to do with display mode */
                 display: inline-block;
 
                 opacity: 0;
-                animation: .8s ease-out calc(var(--i) * .2s + .9s) web-dev-slide-down forwards;
+                animation:
+                    .8s ease-out calc(var(--i) * .2s + .9s) web-dev-slide-down forwards;
             }
         }
 
@@ -191,57 +216,19 @@ Main
         .page-title {
             order: 1;
 
-            display: flex;
-            justify-content: center;
-
             & h1 {
-                max-width: fit-content;
                 filter: drop-shadow(0 2px 1.7px #00000034);
+
+                // @media screen and (max-width: base_variables.$breakpoint-medium) {
+                    margin-top: 1rem;
+                // }
             }
         }
 
-
-        /* win via cascade */
-        @media screen and (max-width: 62.5em) {
-            flex-direction: column;
-            align-items: center;
-
-            h1 {
-                /* rem so that the unit isn't based on h1's size, rather 16px */
-                margin-bottom: .5rem;
-            }
-
-            > * {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                flex-grow: 1;
-
-            }
-
-            .intro-sequence {
-                align-items: center;
-
-                /* strange. reset must be present for children to be centered,
-                yet the box model layout doesn't display any margin/padding in firefox... */
-                margin: 0;
-                padding: 0;
-                margin-top: .6em;
-            }
-
-            img.headshot {
-                max-width: 7.25em;
-                max-height: 7.25em;
-                border-radius: 100%;
-                border: 3px solid #1D1B2C;
-
-                filter: drop-shadow(0 4px 4.8px #1d1b2c8a);
-                object-fit: cover;
-
-                position: static;
-            }
-        }
+        /* Mobile content__subheader */
+        // @media screen and (max-width: base_variables.$breakpoint-medium) {
+            grid: auto-flow / 1fr;
+        // }
     }
 }
 
@@ -270,7 +257,7 @@ Main
         /* For when the copyright text wraps: */
         text-align: center;
     }
-    
+
     a.footer__link {
         color: black;
         text-decoration: underline dashed rgb(170 170 170) 1px;
@@ -280,6 +267,28 @@ Main
 
         &:hover {
             color: #999d53;
+        }
+    }
+}
+
+#page-content,
+#page-footer {
+    a[target="_blank"] {
+
+        &::after {
+            content: "";
+            display: inline-block;
+            vertical-align: baseline;
+
+            height: 1em;
+            width: 1em;
+
+            background: blue;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath d='m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z'/%3E%3Cpath fill='%23000' d='M11 6a1 1 0 1 1 0 2H5v11h11v-6a1 1 0 1 1 2 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm9-3a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V6.414l-8.293 8.293a1 1 0 0 1-1.414-1.414L17.586 5H15a1 1 0 1 1 0-2Z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        &:visited::after {
+            background: rgb(85, 26, 139);
         }
     }
 }
@@ -295,7 +304,7 @@ p.last-modified {
     font-size: .7rem;
     text-align: center;
     padding-top: 4em;
-    /* padding if page-content fills enough free space to reach last-modified */
+    /* padding for if page-content fills enough free space to reach last-modified */
 
     margin-top: auto;
 }
