@@ -1,3 +1,45 @@
+main .attributions {
+  margin-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* this still has the list-style-type moving with the font-size increase issue
+  if width: fit-content. how to fix? 
 
+  note: .w-5 selector wins against ul */
+}
+main .attributions h2 {
+  font-size: 1.25em;
+}
+main .attributions h3 {
+  font-size: 1em;
+}
+main .attributions .w-1 {
+  width: 1em;
+}
+main .attributions .mt-05 {
+  margin-top: 0.5rem;
+}
+main .attributions ul {
+  /* I wonder if there's a better way to
+  expand the text's size on hover, while keeping everything center
+  so that the list-style-type doesn't move due to the text
+  increasing the containing ul size...
+  maybe with an <a> wrapper div? */
+  width: 16.5em;
+}
+main .attributions ul li {
+  color: #1D1B2C;
+}
+main .attributions ul li a {
+  color: #1D1B2C;
+  font-size: 0.888em;
+  transition: 0.2s color ease-out, 0.2s font-size ease-out;
+}
+main .attributions ul li a:hover {
+  color: #85c9c8;
+  font-size: 0.898em;
+}
 
 /*# sourceMappingURL=attributions.css.map */
