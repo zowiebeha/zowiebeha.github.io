@@ -1,45 +1,36 @@
-main .attributions {
-  margin-top: 0.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ===========
+Attributions page content
+============== */
+.attribution-details {
+  margin-top: 2rem;
+  display: grid;
   justify-content: center;
-  /* this still has the list-style-type moving with the font-size increase issue
-  if width: fit-content. how to fix? 
-
-  note: .w-5 selector wins against ul */
 }
-main .attributions h2 {
+.attribution-details .attributions__heading {
   font-size: 1.25em;
 }
-main .attributions h3 {
-  font-size: 1em;
-}
-main .attributions .w-1 {
-  width: 1em;
-}
-main .attributions .mt-05 {
-  margin-top: 0.5rem;
-}
-main .attributions ul {
+.attribution-details .attribution-list {
   /* I wonder if there's a better way to
-  expand the text's size on hover, while keeping everything center
-  so that the list-style-type doesn't move due to the text
-  increasing the containing ul size...
-  maybe with an <a> wrapper div? */
-  width: 16.5em;
+      expand the text's size on hover, while keeping everything center
+      so that the list-style-type doesn't move due to the text
+      increasing the containing ul size...
+      maybe with an <a> wrapper div? */
+  width: 21rem;
 }
-main .attributions ul li {
+.attribution-details .attribution-list .list__item {
   color: #1D1B2C;
 }
-main .attributions ul li a {
-  color: #1D1B2C;
+.attribution-details .attribution-list .list__item .list__link {
+  color: #575dd4;
   font-size: 0.888em;
   transition: 0.2s color ease-out, 0.2s font-size ease-out;
 }
-main .attributions ul li a:hover {
+.attribution-details .attribution-list .list__item .list__link:hover {
   color: #85c9c8;
   font-size: 0.898em;
+}
+.attribution-details .attribution-list .list__item .list__link:visited {
+  color: rgb(80, 21, 136);
 }
 
 /*# sourceMappingURL=attributions.css.map */

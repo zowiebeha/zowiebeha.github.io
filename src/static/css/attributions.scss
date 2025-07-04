@@ -1,54 +1,46 @@
-main {
-    & .attributions {
-        margin-top: .5em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        & h2 {
-            font-size: 1.25em;
-        }
-        & h3 {
-            font-size: 1em;
-        }
-        
-        /* this still has the list-style-type moving with the font-size increase issue
-        if width: fit-content. how to fix? 
-        
-        note: .w-5 selector wins against ul */
-        & .w-1 {
-            width: 1em;
-        }
-        
-        & .mt-05 {
-            margin-top: .5rem;
-        }
-        
-        & ul {
-            /* I wonder if there's a better way to
+/* ===========
+Attributions page content
+============== */
+
+.attribution-details {
+    margin-top: 2rem;
+
+    display: grid;
+    justify-content: center;
+
+    .attributions__heading {
+        font-size: 1.25em;
+    }
+
+    .attribution-list {
+        // Improvement:
+        /* I wonder if there's a better way to
             expand the text's size on hover, while keeping everything center
             so that the list-style-type doesn't move due to the text
             increasing the containing ul size...
-            maybe with an <a> wrapper div? */                        
-            width: 16.5em;
-            
-            li {
-                color: #1D1B2C;
- 
-                & a {
-                    color: #1D1B2C;
-                    font-size: 0.888em;
-                    
-                    transition: .2s color ease-out,
-                                .2s font-size ease-out;
-                    &:hover {
-                        color: #85c9c8;
-                        font-size: 0.898em;
-                    }
+            maybe with an <a> wrapper div? */
+        width: 21rem;
+
+        .list__item {
+            color: #1D1B2C;
+
+            .list__link {
+                color: #575dd4;
+                font-size: 0.888em;
+
+                transition:
+                    .2s color ease-out,
+                    .2s font-size ease-out;
+
+                &:hover {
+                    color: #85c9c8;
+                    font-size: 0.898em;
+                }
+                
+                &:visited {
+                    color: rgb(80 21 136);
                 }
             }
         }
-        
     }
 }

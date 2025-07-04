@@ -147,11 +147,16 @@ Main
             // }
 
             .intro-sequence__name {
+                
                 font-size: 2.25em;
                 /* max-height of fit-content doesn't work strangely */
                 max-height: 1.2em;
 
                 filter: drop-shadow(0 2px 1.65px #0000003e);
+                
+                // @media screen and (max-width: base_variables.$breakpoint-medium) {
+                    margin-top: 1rem;
+                // }
             }
 
             // look into using sass to make this nicer
@@ -213,17 +218,16 @@ Main
         }
 
 
-        .page-title {
-            order: 1;
-
-            & h1 {
+            h1.page-title {
+                order: 1;
+                
                 filter: drop-shadow(0 2px 1.7px #00000034);
 
                 // @media screen and (max-width: base_variables.$breakpoint-medium) {
                     margin-top: 1rem;
                 // }
             }
-        }
+
 
         /* Mobile content__subheader */
         // @media screen and (max-width: base_variables.$breakpoint-medium) {
@@ -273,7 +277,7 @@ Main
 
 #page-content,
 #page-footer {
-    a[target="_blank"] {
+    p > a[target="_blank"] {
 
         &::after {
             content: "";
@@ -294,7 +298,9 @@ Main
 }
 
 div.hr {
-    width: 96%;
+    margin-top: 2rem;
+    width: 100%;
+    
     opacity: 3%;
     height: 4px;
     background-color: #1D1B2C;
