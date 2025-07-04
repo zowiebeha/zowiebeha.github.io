@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <title>Zowie Beha</title>
+        <title>Home - Zowie Beha</title>
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,30 +15,36 @@
         <!-- Styles -->
         <link rel="stylesheet" href="./public/static/css/base/base.css">
         <link rel="stylesheet" href="./public/static/css/index.css">
+        
+        <!-- Scripts -->
+        <script defer src="./public/static/js/vendor/particles.min.js"></script>
+        <script defer src="./public/static/js/index-particlesjs.js"></script>
     </head>
     <body>
         <div class="fluid-layout">
-            <header>
+            <header id="page-header">
                 <nav>
-                    
-                    <ul>                    
-                        <li>
+                    <ul class="nav-list">                    
+                        <li class="nav__item ml-auto">
                             <p>
-                                <a href="index.html">
+                                <a class="nav__link"
+                                   href="index.html">
                                     home
                                 </a>
                             </p>
                         </li>
-                        <li>
+                        <li class="nav__item">
                             <p>
-                                <a href="projects.html">
+                                <a class="nav__link"
+                                   href="projects.html">
                                     projects
                                 </a>
                             </p>
                         </li>
-                        <li class="r-padding">
+                        <li class="nav__item">
                             <p>
-                                <a target="_blank" href="./public/media/Zowie Beha Resume.pdf">
+                                <a class="nav__link"
+                                   target="_blank" href="./public/media/Zowie Beha Resume.pdf">
                                     resume ⬇️
                                 </a>
                             </p>
@@ -47,25 +53,23 @@
                 </nav>
             </header>
             
-            <main>
-                <div class="main-subheader">
-                    <div class="page-title">
-                        <h1>
-                            Home:
-                        </h1>
-                    </div>
+            <main id="page-content">
+                <div class="content__subheader">
+                    <h1 class="page-title">
+                        Home:
+                    </h1>
                     
-                    <img class="headshot" src="./public/static/img/headshot.jpg" alt="A photo of Zowie">
+                    <img class="img--headshot" src="./public/static/img/headshot.jpg" alt="A photo of Zowie">
 
-                    <div class="introduction">
-                        <p aria-label="hi, i'm Zowie">
+                    <div class="intro-sequence">
+                        <p class="intro-sequence__name" aria-label="hi, i'm Zowie">
                             <span aria-hidden="true">
                                 <span>hi, </span>
                                 <span>i'm</span>
                                 <span>Zowie</span>
                             </span>
                         </p>
-                        <small aria-label="software developer">
+                        <small class="intro-sequence__career" aria-label="software developer">
                             <span aria-hidden="true">
                                 <span>software</span>
                                 <span>developer</span>
@@ -74,32 +78,34 @@
                     </div>
                 </div>
                 
-                <div class="horizontal-line"></div>
+                <div class="hr"></div>
                 
+                <!-- ParticlesJS -->
                 <div id="particles-js"></div>
-
                   
-                <div class="about">
-                    <p>
+                <!-- Content details -->
+                <div class="content__details">
+                    <p class="detail__paragraph">
                         I fell in love with programming from a very young age.
                     </p>
-                    <p>
+                    <p class="detail__paragraph">
                         I am passionate about working within teams, mentoring, and coding.
                     </p>
-                    <p>
+                    <p class="detail__paragraph">
                         I love helping others, and enjoy working with small businesses to solve problems they face.
                     </p>
-                    <p>
+                    <p class="detail__paragraph">
                         I am currently developing the front-end for a small local business to help them tap into the potential of the web. 
                     </p>
-                    <p>
+                    <p class="detail__paragraph">
                         I am always open to new opportunities, and welcome all new contacts.
                     </p>
-                    <p>
+                    
+                    <p class="social-text">
                         My
                         <a target="_blank" href="https://www.linkedin.com/in/zowie-beha-4b0498250/">Linkedin</a>
                     </p>
-                    <p>
+                    <p class="social-text">
                         My
                         <a target="_blank" href="https://github.com/1zzowiebeha">GitHub</a> 
                     </p>
@@ -107,34 +113,25 @@
                 
                   
                 <p class="last-modified">
-                    Last modified <time datetime="2024-07-03">7/3/2025</time>
+                    Last modified <time datetime="2024-07-04">7/4/2025</time>
                 </p>
             </main>
             
-            <footer>
-                <div>
-                    <p>
-                        <a href="attributions.html">
-                            attributions
-                        </a>
-                    </p>
-                </div>
+            <footer id="page-footer">
+                <p>
+                    <a class="footer__link" href="attributions.html">
+                        attributions
+                    </a>
+                </p>                
+
+                <p>
+                    copyright &copy;2025 Zowie Beha
+                </p>
                 
-                <div>
-                    <p>
-                        copyright &copy;2025 Zowie Beha
-                    </p>
-                </div>
-                   
-                <div>
-                    <p>
-                        i ❣️ code
-                    </p>
-                </div>
+                <p>
+                    i ❣️ code
+                </p>
             </footer>
         </div>
-        
-        <script src="./public/static/js/vendor/particles.min.js"></script>
-        <script src="./public/static/js/index-particlesjs.js"></script>
     </body>
 </html>

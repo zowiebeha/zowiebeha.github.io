@@ -29,256 +29,242 @@ html, body {
 Sticky header & Footer
 ============== */
 .fluid-layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid: auto 1fr auto/1fr;
   width: 100vw;
   height: 100vh;
 }
 
 /* ===========
-Header
+Nav bar
 ============== */
-header {
-  width: 100%;
-  /* flexbox likes max-height more than height for some reason.
-  look into this! */
-  max-height: 3em;
-  flex-grow: 1;
-  flex-shrink: 0;
+#page-header .nav-list {
   background-color: #1D1B2C;
-  border-bottom: 4px solid #9794AD;
-  /* center the <ul> within the header */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-header ul {
+  border-bottom: 3px solid #cdcdd2;
+  height: 3.1rem;
   width: 100%;
+  padding-right: 2.3rem;
   display: flex;
-  gap: 2.375em;
-  margin-right: 4.75em;
+  gap: 2.3rem;
+  /* Mobile column layout for navbar */
+  /* Mobile */
 }
-header ul li:first-child {
-  /* move all links to the left via how flex handles auto margins */
-  margin-left: auto;
-}
-@media screen and (max-width: 51.688em) {
-  header ul {
-    margin-right: 0;
-    justify-content: center;
+@media screen and (max-width: 960px) {
+  #page-header .nav-list {
+    height: auto;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 0;
+    /* .nav__items' defined width on mobile will opt out of align-items: stretch. center the 
+       items on mobile as a fix. */
+    align-items: center;
   }
-  header ul li:first-child {
+  #page-header .nav-list .ml-auto {
     margin-left: 0;
   }
 }
-header ul li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.813em;
+#page-header .nav-list .nav__item {
+  /* center contents horizontally and vertically.
+  we could use padding on the paragraph instead. */
+  text-align: center;
   /*
    * `list-style-type: none` removes the element from the accessibility tree.
    * ::marker has a limited set of properties. `display` is not included,
    * however `font-size` is available, so we can use that to hide the list item markers.
    */
+  /* Mobile nav__item */
 }
-header ul li::marker {
+#page-header .nav-list .nav__item::marker {
   font-size: 0;
 }
-header ul li a {
+#page-header .nav-list .nav__item .nav__link {
   /* replace with medium-width rubik font */
+  line-height: 100%;
+  display: inline-block;
+  width: 100%;
+  /* increase link click area */
+  padding: 1rem 0;
   color: white;
   text-decoration: none;
   transition: 0.2s color ease-out;
 }
-header ul li a:hover {
+#page-header .nav-list .nav__item .nav__link:hover {
   color: #b9c4f8;
 }
-header ul li.r-padding {
-  padding: 0 0.6rem 0 0;
+@media screen and (max-width: 960px) {
+  #page-header .nav-list .nav__item {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 960px) {
+  #page-header .nav-list {
+    /* simulate padding for top/bottom of nav-list, but make it clickable area */
+  }
+  #page-header .nav-list .nav__item:first-of-type .nav__link {
+    padding-top: 2rem;
+  }
+  #page-header .nav-list .nav__item:last-of-type .nav__link {
+    padding-bottom: 2rem;
+  }
 }
 
 /* ===========
 Main
 ============== */
-main {
+#page-content {
+  /* A single line where we can use margin-top: auto; */
+  /* With grid, we would need an additional div to act as a single item,
+  which would let use use margin-top: auto;. More markup. Better than flex?
+  maybe ... I just don't like nested divs that serve little purpose.  */
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-grow: 2;
-  flex-shrink: 1;
-  /* space between main content and footer if main content overflows outside of
-  fluid-layout */
-  padding-bottom: 1em;
+  align-content: flex-start;
+  height: 100%;
 }
-main .main-subheader {
-  display: flex;
-  width: 100%;
-  /* win via cascade */
-}
-main .main-subheader > * {
-  display: flex;
+#page-content .content__subheader {
+  display: grid;
+  grid: 1fr/1fr auto 1fr;
   align-items: center;
-  justify-content: flex-start;
-  flex-basis: 40%;
-  flex-grow: 2;
-  flex-shrink: 1;
+  justify-items: center;
+  width: 100%;
+  /* Mobile content__subheader */
+  grid: auto-flow/1fr;
 }
-main .main-subheader img.headshot {
-  max-width: 7.25em;
-  max-height: 7.25em;
+#page-content .content__subheader .img--headshot {
+  max-width: 7.25rem;
+  max-height: 7.25rem;
   border-radius: 100%;
   border: 3px solid #1D1B2C;
   filter: drop-shadow(0 4px 4.8px rgba(29, 27, 44, 0.5411764706));
   object-fit: cover;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 20%;
   position: relative;
-  top: -2.3em;
+  top: -2.3rem;
+  /* Mobile headshot image */
+  top: 0;
+  margin-top: 0.5rem;
 }
-main .main-subheader .introduction {
+#page-content .content__subheader .intro-sequence {
+  justify-self: left;
   order: -1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin-left: 3.438em;
+  margin-left: 3.438rem;
+  /* Mobile intro-sequence */
+  margin-left: 0;
+  justify-self: center;
+  order: 0;
 }
-main .main-subheader .introduction p {
+#page-content .content__subheader .intro-sequence .intro-sequence__name {
   font-size: 2.25em;
   /* max-height of fit-content doesn't work strangely */
   max-height: 1.2em;
   filter: drop-shadow(0 2px 1.65px rgba(0, 0, 0, 0.2431372549));
+  margin-top: 1rem;
 }
-main .main-subheader .introduction p span > span:nth-child(1) {
+#page-content .content__subheader .intro-sequence .intro-sequence__name span > span:nth-child(1) {
   --i: 1 ;
 }
-main .main-subheader .introduction p span > span:nth-child(2) {
+#page-content .content__subheader .intro-sequence .intro-sequence__name span > span:nth-child(2) {
   --i: 2 ;
 }
-main .main-subheader .introduction p span > span:nth-child(3) {
+#page-content .content__subheader .intro-sequence .intro-sequence__name span > span:nth-child(3) {
   --i: 3 ;
 }
-main .main-subheader .introduction p span > span:nth-child(n) {
+#page-content .content__subheader .intro-sequence .intro-sequence__name span > span:nth-child(n) {
   /* I guess this is needed for translation to work...
   i guess I will need to read the guides again. it has to do with display mode */
   display: inline-block;
   opacity: 0;
   animation: 1.3s calc(var(--i) * 0.15s) slide-down-too-far forwards, 1s 1.15s slide-up-to-zero forwards;
 }
-main .main-subheader .introduction small {
+#page-content .content__subheader .intro-sequence .intro-sequence__career {
   font-size: 1em;
   /* max-height of fit-content doesn't work strangely */
   max-height: 1.2em;
   filter: drop-shadow(0 2px 4.3px rgba(0, 0, 0, 0.0980392157));
+  /* Mobile intro-sequence__career */
+  display: flex;
+  justify-content: center;
 }
-main .main-subheader .introduction small span > span:nth-child(1) {
+#page-content .content__subheader .intro-sequence .intro-sequence__career span > span:nth-child(1) {
   --i: 1 ;
 }
-main .main-subheader .introduction small span > span:nth-child(2) {
+#page-content .content__subheader .intro-sequence .intro-sequence__career span > span:nth-child(2) {
   --i: 2 ;
 }
-main .main-subheader .introduction small span > span:nth-child(n) {
+#page-content .content__subheader .intro-sequence .intro-sequence__career span > span:nth-child(n) {
   /* I guess this is needed for translation to work...
   i guess I will need to read the guides again. it has to do with display mode */
   display: inline-block;
   opacity: 0;
   animation: 0.8s ease-out calc(var(--i) * 0.2s + 0.9s) web-dev-slide-down forwards;
 }
-main .main-subheader .page-title {
+#page-content .content__subheader h1.page-title {
   order: 1;
-  display: flex;
-  justify-content: center;
-}
-main .main-subheader .page-title h1 {
-  max-width: fit-content;
   filter: drop-shadow(0 2px 1.7px rgba(0, 0, 0, 0.2039215686));
-}
-@media screen and (max-width: 62.5em) {
-  main .main-subheader {
-    flex-direction: column;
-    align-items: center;
-  }
-  main .main-subheader h1 {
-    /* rem so that the unit isn't based on h1's size, rather 16px */
-    margin-bottom: 0.5rem;
-  }
-  main .main-subheader > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-  }
-  main .main-subheader .introduction {
-    align-items: center;
-    /* strange. reset must be present for children to be centered,
-    yet the box model layout doesn't display any margin/padding in firefox... */
-    margin: 0;
-    padding: 0;
-    margin-top: 0.6em;
-  }
-  main .main-subheader img.headshot {
-    max-width: 7.25em;
-    max-height: 7.25em;
-    border-radius: 100%;
-    border: 3px solid #1D1B2C;
-    filter: drop-shadow(0 4px 4.8px rgba(29, 27, 44, 0.5411764706));
-    object-fit: cover;
-    position: static;
-  }
-}
-main .horizontal-line {
-  width: 96%;
-  opacity: 3%;
-  height: 4px;
-  background-color: #1D1B2C;
-}
-main p.last-modified {
-  font-size: 0.7rem;
-  margin-top: auto;
-  padding-top: 4em;
+  margin-top: 1rem;
 }
 
-footer {
-  flex-grow: 1;
-  flex-shrink: 0;
-  background-color: #FCFCFC;
-  border-top: 2px solid #A5A3A3;
-  display: flex;
-  padding: 0.3em 0;
-  /* max-height due to flex (learn more from josh comeau) */
-  max-height: 6em;
+#page-footer {
+  /* space between page-content and page-footer if page-content
+     contents fill to touch page-footer's top box face */
+  margin-top: 1rem;
+  border-top: 2px solid #c4c4c4;
+  display: grid;
+  grid: 1fr/repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding: 0.6rem 0;
+  /* Mobile column layout for page-footer */
 }
 @media screen and (max-width: 35.188em) {
-  footer {
-    flex-direction: column;
+  #page-footer {
+    grid: repeat(3, 1fr)/1fr;
     row-gap: 1em;
-    padding: 0.5em 0;
-    max-height: fit-content;
   }
 }
-footer > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  flex-basis: 33%;
-  color: black;
-}
-footer p {
-  /* for when the copyright text wraps */
+#page-footer p {
+  /* For when the copyright text wraps: */
   text-align: center;
 }
-footer p a {
+#page-footer a.footer__link {
   color: black;
   text-decoration: underline dashed rgb(170, 170, 170) 1px;
   text-underline-offset: 2px;
   transition: 0.2s color ease-out;
 }
-footer p a:hover {
+#page-footer a.footer__link:hover {
   color: #999d53;
+}
+
+#page-content p > a[target=_blank]::after,
+#page-footer p > a[target=_blank]::after {
+  content: "";
+  display: inline-block;
+  vertical-align: baseline;
+  height: 1em;
+  width: 1em;
+  background: blue;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none'%3E%3Cpath d='m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z'/%3E%3Cpath fill='%23000' d='M11 6a1 1 0 1 1 0 2H5v11h11v-6a1 1 0 1 1 2 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm9-3a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V6.414l-8.293 8.293a1 1 0 0 1-1.414-1.414L17.586 5H15a1 1 0 1 1 0-2Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+#page-content p > a[target=_blank]:visited::after,
+#page-footer p > a[target=_blank]:visited::after {
+  background: rgb(85, 26, 139);
+}
+
+div.hr {
+  margin-top: 2rem;
+  width: 100%;
+  opacity: 3%;
+  height: 4px;
+  background-color: #1D1B2C;
+}
+
+p.last-modified {
+  font-size: 0.7rem;
+  text-align: center;
+  padding-top: 4em;
+  /* padding for if page-content fills enough free space to reach last-modified */
+  margin-top: auto;
 }
 
 /* ===========
@@ -293,14 +279,6 @@ Keyframes
     transform: translate3d(0, -0.55em, 0);
     opacity: 0;
   }
-  /* 30% {
-      opacity: 1;
-  }
-
-  60% {
-      opacity: 1;
-      transform: translate3d(0, .15em, 0);
-  } */
   to {
     opacity: 1;
     transform: translate3d(0, 0.35em, 0);
@@ -314,8 +292,8 @@ Keyframes
 }
 @keyframes web-dev-slide-down {
   /* use translate instead of relative w/ top, as the text-align
-  property will cause unsmooth animation due to centering? dunno
-  maybe also a similar reason when working with flex children? */
+      property will cause unsmooth animation due to centering? dunno
+      maybe also a similar reason when working with flex children? */
   /* https://stackoverflow.com/questions/65995712/css-animation-is-not-smooth-it-is-shaking */
   from {
     opacity: 0;
@@ -325,6 +303,21 @@ Keyframes
     opacity: 1;
     transform: translate3d(0, -0.2em, 0);
   }
+}
+.pr-06 {
+  padding-right: 0.6rem;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-05 {
+  margin-top: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*# sourceMappingURL=base.css.map */
