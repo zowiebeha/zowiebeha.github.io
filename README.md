@@ -3,9 +3,11 @@ Visit this [link](https://1zzowiebeha.github.io/) to view the homepage.
 
 # Roadmap
 
-It's pretty messy at the moment. BEM naming isn't used a lot, and it's `em` units all the way down for the most part with little regard to parent font-size.
+It's pretty messy at the moment.
+The project uses `em` units all the way down for the most part with little regard to parent font-size.
 
-I also plan to create a technical/personal blog to write about my life, publish tutorials, and more :)
+I plan to fix these, and integrate backend functionality.
+This will include a technical/personal blog to write about my life, publish tutorials, and more :)
 
 # Disclaimer:
 
