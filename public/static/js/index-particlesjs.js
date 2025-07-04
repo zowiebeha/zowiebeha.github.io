@@ -5,7 +5,7 @@ Class: CITW 165
 Exercise: Class Project: Task 6
 **********/  
 
-document.addEventListener('DOMContentLoaded', function() {
+(() => {
     // This will only work when files are served via a server.
     // The browser blocks cross origin requests, so fetch won't be able
     //      to access the json file without something like Apache,
@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', function() {
     particlesJS.load('particles-js', config_path, function () {
         console.log('callback - particles.js config loaded');
     });
-});
+})();
