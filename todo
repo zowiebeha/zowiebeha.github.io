@@ -1,7 +1,9 @@
 Make site cross-compatible with older MacOS desktops using old Safari browser versions.
     Figure out which version the site breaks at.
     
-Use BEM
+🚧 Use BEM
+
+Use SCSS variables for breakpoint values
 
 Use REM units
 
