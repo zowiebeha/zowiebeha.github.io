@@ -4,18 +4,21 @@
 
 ✅ homepage fix uncentered socials on mobile
 
-attributions uncentered list
+✅ attributions uncentered list
 
-projects won't shrink for mobile
-(maybe the project list is too big)
+✅ projects won't shrink for mobile
+    (it used fixed units for sizing that were too large on mobile)
+
+Fix the horizontal scroll bar issue
+    (probably a fixed unit somewhere)
+    
+Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
 
 🚧 Use BEM
 
 Make site cross-compatible with older MacOS desktops using old Safari browser versions.
     🚧 Figure out which version of MacOS / Safari the site breaks at.
     SCSS's nested style feature should help with outdated browser cross-compatibility
-
-If i resize the browser to be phone-sized, my site breaks; but it looks fine on mobile
 
 Ensure that favicon is DPI, device & network responsive
 
@@ -26,8 +29,6 @@ Ensure that favicon is DPI, device & network responsive
     Test the site on a real mobile device
     
 Learn why spaces within path/file names are not valid HTML5
-    
-Fix the horizontal scroll bar issue
 
 Fix tooltip script's Content Security Policy issue
 
