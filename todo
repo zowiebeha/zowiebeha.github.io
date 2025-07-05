@@ -1,25 +1,42 @@
+# Todo List
+
+## Todo
+
+✅ homepage fix uncentered socials on mobile
+
+✅ attributions uncentered list
+
+✅ projects won't shrink for mobile
+    (it used fixed units for sizing that were too large on mobile)
+
+Fix the horizontal scroll bar issue
+    (probably a fixed unit somewhere)
+    
+Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
+
+🚧 Use BEM
+
 Make site cross-compatible with older MacOS desktops using old Safari browser versions.
     🚧 Figure out which version of MacOS / Safari the site breaks at.
     SCSS's nested style feature should help with outdated browser cross-compatibility
 
-🚧 Use BEM
+Ensure that favicon is DPI, device & network responsive
 
-✅ Use SCSS variables for breakpoint values
+❗ Add bandwidth & dpi responsive images
+
+❗ Fix font size on mobile
+    (on the devtools emulator at least, it often appears weird.)
+    Test the site on a real mobile device
+    
+Learn why spaces within path/file names are not valid HTML5
+
+Fix tooltip script's Content Security Policy issue
+
+Fix the introduction-sequence "software developer" subtext accessibility issue
 
 🚧 Use REM units
 
-✅ Add a favicon
-
-Ensure that favicon is DPI, device & network responsive
-
-Fix the "software developer" subtext accessibility issue
-
-Fix the horizontal scroll bar issue
-
-✅ Move the super "Zowie Beha" & subtext "software developer" to be under
-    ... the headshot image at the center of the screen.
-    
--------
+Standardize all sizing and font units to common multiples
 
 Base:
     think about and adjust subheader ordering if needed
@@ -34,12 +51,18 @@ Projects:
     Improve accessibility for tooltip
     Fix use of em units
     ❗ Code review and remove / update as fit
+    
+## Completed
 
+✅ Use SCSS variables for breakpoint values
+
+✅ Add a favicon
+
+✅ Move the super "Zowie Beha" & subtext "software developer" to be under
+    ... the headshot image at the center of the screen.
+    
 ✅ Validate all HTML documents
 
-❗ Fix font size on mobile
-
-Standardize all sizing and font units to common multiples
-
 ✅ Remove JS DOMContentLoaded event listener since we now defer.
+
 ✅ Use an IIFE for an anonymous scope instead.

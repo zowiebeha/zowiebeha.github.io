@@ -1,3 +1,5 @@
+@use "./base/base_variables";
+
 /* ===========
 Attributions page content
 ============== */
@@ -8,8 +10,8 @@ Attributions page content
     display: grid;
     justify-content: center;
 
-    .attributions__heading {
-        font-size: 1.25em;
+    .attribution__heading {
+        font-size: 1.5em;
     }
 
     .attribution-list {
@@ -20,11 +22,38 @@ Attributions page content
             increasing the containing ul size...
             maybe with an <a> wrapper div? */
         width: 21rem;
+        
+        @media screen and (max-width: base_variables.$breakpoint-small) {
+            width: 16rem;
+        }
 
         .list__item {
             color: #1D1B2C;
+            
+            @media screen and (max-width: base_variables.$breakpoint-small) {
+                &::marker {
+                    /* We can't adjust the gap between the ::marker and the list item with precision: */
+                    /* https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ */
+                    font-size: 0px;
+                }
+                
+                .item__text {
+                    position: relative;
+                    font-size: 1.3rem;
+                }
+                
+                .item__text::before {
+                    content: "•";
+                    position: absolute;
+                    left: -1em;
+                    
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    padding-right: 1em;
+                }
+            }
 
-            .list__link {
+            .item__link {
                 color: #575dd4;
                 font-size: 0.888em;
 

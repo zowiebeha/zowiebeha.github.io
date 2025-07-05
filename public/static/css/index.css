@@ -113,7 +113,9 @@ Main
 ============== */
 #page-content {
   /* A single line where we can use margin-top: auto; */
-  /* With grid, we would need an additional div to act as a single item,
+  /* With grid, we would need a single track (1fr / 1fr),
+  ???????
+  ... additional div to act as a single item,
   which would let use use margin-top: auto;. More markup. Better than flex?
   maybe ... I just don't like nested divs that serve little purpose.  */
   display: flex;
@@ -216,7 +218,7 @@ Main
   padding: 0.6rem 0;
   /* Mobile column layout for page-footer */
 }
-@media screen and (max-width: 35.188em) {
+@media screen and (max-width: 960px) {
   #page-footer {
     grid: repeat(3, 1fr)/1fr;
     row-gap: 1em;
@@ -225,6 +227,11 @@ Main
 #page-footer p {
   /* For when the copyright text wraps: */
   text-align: center;
+}
+@media screen and (max-width: 640px) {
+  #page-footer p {
+    font-size: 1.1rem;
+  }
 }
 #page-footer a.footer__link {
   color: black;
@@ -265,6 +272,11 @@ p.last-modified {
   padding-top: 4em;
   /* padding for if page-content fills enough free space to reach last-modified */
   margin-top: auto;
+}
+@media screen and (max-width: 640px) {
+  p.last-modified {
+    font-size: 1rem;
+  }
 }
 
 /* ===========
@@ -370,7 +382,7 @@ About section
 }
 @media screen and (max-width: 640px) {
   .content__details .social-text {
-    padding-right: 0;
+    padding: 0.5rem;
   }
 }
 
