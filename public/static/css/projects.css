@@ -36,7 +36,7 @@ Projects page content
   grid: auto-flow dense/repeat(3, 1fr);
   gap: 2.375rem;
   margin-top: 2.625em;
-  width: 51.0644em;
+  width: 60%;
   /* magic number. this code def needs a rewrite */
 }
 @media screen and (max-width: 960px) {
@@ -44,7 +44,7 @@ Projects page content
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     justify-content: center;
-    width: 40.314em;
+    width: 40%;
   }
 }
 @media screen and (max-width: 640px) {
@@ -52,7 +52,7 @@ Projects page content
     grid-template-columns: 1fr;
     justify-items: center;
     justify-content: center;
-    width: 40.314em;
+    width: 20%;
   }
 }
 .project-container .project {
@@ -143,6 +143,11 @@ Projects page content
       width, the p width isn't the same as the project-thumbnail. Weird...*/
   width: 19.438em;
   font-size: 0.688em;
+}
+@media screen and (max-width: 640px) {
+  .project-container .project .project__info p.info__text {
+    font-size: 0.7rem;
+  }
 }
 .project-container .project a.project__link {
   color: black;
