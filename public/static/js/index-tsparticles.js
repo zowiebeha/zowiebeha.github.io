@@ -10,8 +10,9 @@ Exercise: Class Project: Task 6
     // The browser blocks cross origin requests, so fetch won't be able
     //      to access the json file without something like Apache,
     //      IIS, VSCode's Live Server, etc.
-    const response = await fetch('scripts/vendor/assets/tsparticles-config.json');
-    const pjsConfigJson = await response.json();
+    
+    const response = await fetch('public/static/js/vendor/assets/tsparticles-config.json');
+    const configJson = await response.json();
 
     // https://stackoverflow.com/questions/78654485/tsparticles-not-rendering-particles-options-json-load-complete-no-errors
     // loadAll needed for some reason
@@ -21,7 +22,7 @@ Exercise: Class Project: Task 6
     await tsParticles
         .load({
             id: "tsparticles",
-            options: pjsConfigJson,
+            options: configJson,
         })
         .then(container => {
             console.log("callback - tsparticles config loaded");

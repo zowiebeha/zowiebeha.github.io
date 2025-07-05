@@ -8,7 +8,9 @@ Make site cross-compatible with older MacOS desktops using old Safari browser ve
 
 🚧 Use REM units
 
-Add a favicon
+✅ Add a favicon
+
+Ensure that favicon is DPI, device & network responsive
 
 Fix the "software developer" subtext accessibility issue
 

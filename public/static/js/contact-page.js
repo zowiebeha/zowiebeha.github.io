@@ -32,7 +32,9 @@ $(function () {
         // (there is no such thing as stopDefault().)
         event.preventDefault();
         
-        /* Media query for programmatic css change */
+        // We could just apply a "hidden" class that has a width of 0,
+        //  ... and then remove it via jQuery when the form is submitted.
+        // The output div could use a media query then to transition its width to the desired size.
         let screenWidth = $(window).width();
         if (screenWidth <= 544) {
             $outputContainer.css('width', '85%'); 
@@ -40,13 +42,17 @@ $(function () {
             $outputContainer.css('width', '25%');
         }
         
-        $outputContainer.html($outputParagraph);
-
         // Not sure why, but it seems elements created via jQuery
-        //  don't exist during processing?
+        //  don't exist in a shadow DOM before they exist in the actual DOM:
         // https://reddit.com/r/jquery/comments/8bpxak/why_i_cant_select_dynamically_added_element/?rdt=38584
+
+        // Error:
         // console.log($outputParagraph.find('span.sender'));
         
+        // Add paragraph to the HTML
+        $outputContainer.html($outputParagraph);
+
+        // Set the paragraphs' textContent
         $outputContainer.find('span.sender').text($contactSenderField.val());
         $outputContainer.find('span.subject').text($contactSubjectField.val());
         $outputContainer.find('span.body').text($contactBodyField.val());   

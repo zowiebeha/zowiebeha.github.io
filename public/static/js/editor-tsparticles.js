@@ -5,20 +5,14 @@ Class: CITW 165
 Exercise: Class Project: Task 6
 **********/  
 
-// Currently not supported in tsparticles
+// TSParticles does not currently support an editor.
+// This may change in the future.
 
 (async () => {
     // https://stackoverflow.com/questions/78654485/tsparticles-not-rendering-particles-options-json-load-complete-no-errors
     // loadAll needed for some reason
-    
     await loadAll(tsParticles);
-
-    // tsParticles.loadJSON("tsparticles", "scripts/vendor/assets/particlesjs-config.json")
-    //     .then((container) => {
-    //         showEditor(container).top().right().theme("dark");
-    //     });
     
-    // currently not implemented in tsParticles:
     await tsParticles
         .load({
             id: "tsparticles",

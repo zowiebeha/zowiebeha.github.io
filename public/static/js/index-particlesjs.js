@@ -10,10 +10,11 @@ Exercise: Class Project: Task 6
     // The browser blocks cross origin requests, so fetch won't be able
     //      to access the json file without something like Apache,
     //      IIS, VSCode's Live Server, etc.
-    const config_path = 'public/static/js/vendor/assets/particles-config.json';
+    
+    const configFilePath = 'public/static/js/vendor/assets/particles-config.json';
 
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('particles-js', config_path, function () {
+    particlesJS.load('particles-js', configFilePath, function () {
         console.log('callback - particles.js config loaded');
     });
 })();
