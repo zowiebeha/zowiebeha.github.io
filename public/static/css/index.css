@@ -368,5 +368,10 @@ About section
     padding-right: 1.5rem;
   }
 }
+@media screen and (max-width: 640px) {
+  .content__details .social-text {
+    padding-right: 0;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */

@@ -7,7 +7,7 @@ Exercise: Class Project: Task 6
 
 // Currently not supported in tsparticles
 
-document.addEventListener('DOMContentLoaded', async function() {
+(async () => {
     // https://stackoverflow.com/questions/78654485/tsparticles-not-rendering-particles-options-json-load-complete-no-errors
     // loadAll needed for some reason
     
@@ -27,4 +27,4 @@ document.addEventListener('DOMContentLoaded', async function() {
         .then((container) => {
             showEditor(container).top().right().theme("dark");
         });
-});
+})();

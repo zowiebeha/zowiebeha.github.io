@@ -56,5 +56,9 @@ About section
             // not sure how to explain this. it's weird..
             padding-right: 1.5rem;
         }
+        @media screen and (max-width: base_variables.$breakpoint-small) {
+            // actual center on mobile
+            padding-right: 0;
+        }
     }
 }

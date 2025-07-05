@@ -33,8 +33,11 @@ Projects:
     Fix use of em units
     ❗ Code review and remove / update as fit
 
-Validate all HTML documents
+✅ Validate all HTML documents
 
-Fix font size on mobile
+❗ Fix font size on mobile
 
 Standardize all sizing and font units to common multiples
+
+✅ Remove JS DOMContentLoaded event listener since we now defer.
+✅ Use an IIFE for an anonymous scope instead.
