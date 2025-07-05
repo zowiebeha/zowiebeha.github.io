@@ -36,15 +36,14 @@ Projects page content
   grid: auto-flow dense/repeat(3, 1fr);
   gap: 2.375rem;
   margin-top: 2.625em;
-  width: 60%;
-  /* magic number. this code def needs a rewrite */
+  width: 80%;
 }
 @media screen and (max-width: 960px) {
   .project-container {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     justify-content: center;
-    width: 40%;
+    width: 60%;
   }
 }
 @media screen and (max-width: 640px) {
@@ -52,7 +51,7 @@ Projects page content
     grid-template-columns: 1fr;
     justify-items: center;
     justify-content: center;
-    width: 20%;
+    width: 40%;
   }
 }
 .project-container .project {

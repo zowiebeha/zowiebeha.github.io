@@ -9,16 +9,22 @@
 ✅ projects won't shrink for mobile
     (it used fixed units for sizing that were too large on mobile)
 
+✅ Projects are off-center a bit at a small laptop screen width
+    (the project container used fixed units for its width)
+
+Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
+
 Fix the horizontal scroll bar issue
     (probably a fixed unit somewhere)
-    
-Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
 
 🚧 Use BEM
 
-Make site cross-compatible with older MacOS desktops using old Safari browser versions.
-    🚧 Figure out which version of MacOS / Safari the site breaks at.
-    SCSS's nested style feature should help with outdated browser cross-compatibility
+✅ Make site cross-compatible with older MacOS desktops using old Safari browser versions.
+    ✅ Figure out which version of MacOS / Safari the site breaks at.
+    ✅ SCSS's nested style feature should help with outdated browser cross-compatibility
+       I think this may have solved it?
+       In addition to great architectural changes.
+       How is grid support in Safari version 15.6?
 
 Ensure that favicon is DPI, device & network responsive
 
