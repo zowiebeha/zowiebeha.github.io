@@ -6,7 +6,7 @@ Exercise: Class Project: Task 6
 **********/
 
 (() => {
-    const iconImages = document.querySelectorAll('div.icon img');
+    const iconImages = document.querySelectorAll('div.icons div.icon img.icon__img');
     const tooltipElement = document.getElementById('floating-tooltip');
     const tooltipTextElement = document.querySelector('#floating-tooltip .tooltip-text');
     const arrowElement = document.getElementById('floating-tooltip-arrow');

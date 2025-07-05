@@ -45,16 +45,15 @@ Projects page content
     gap: 2.375rem;
 
     margin-top: 2.625em;
-
-    width: 60%;
-    /* magic number. this code def needs a rewrite */
+    
+    width: 80%;
 
     @media screen and (max-width: base_variables.$breakpoint-medium) {
         grid-template-columns: 1fr 1fr;
         justify-items: center;
         justify-content: center;
 
-        width: 40%;
+        width: 60%;
     }
     
     @media screen and (max-width: base_variables.$breakpoint-small) {
@@ -62,7 +61,7 @@ Projects page content
         justify-items: center;
         justify-content: center;
 
-        width: 20%;
+        width: 40%;
     }
 
     .project {
