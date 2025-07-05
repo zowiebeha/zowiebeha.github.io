@@ -6,7 +6,7 @@ Visit this [link](https://1zzowiebeha.github.io/) to view the homepage.
 It's pretty messy at the moment.
 The project uses `em` units all the way down for the most part with little regard to parent font-size.
 
-I plan to fix these, and integrate backend functionality.
+I plan to fix this, and to integrate backend functionality.
 This will include a technical/personal blog to write about my life, publish tutorials, and more :)
 
 # Disclaimer:
