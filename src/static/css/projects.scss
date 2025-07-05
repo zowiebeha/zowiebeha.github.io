@@ -46,7 +46,7 @@ Projects page content
 
     margin-top: 2.625em;
 
-    width: calc(13.438em * 3.8);
+    width: 60%;
     /* magic number. this code def needs a rewrite */
 
     @media screen and (max-width: base_variables.$breakpoint-medium) {
@@ -54,7 +54,7 @@ Projects page content
         justify-items: center;
         justify-content: center;
 
-        width: calc(13.438em * 3);
+        width: 40%;
     }
     
     @media screen and (max-width: base_variables.$breakpoint-small) {
@@ -62,7 +62,7 @@ Projects page content
         justify-items: center;
         justify-content: center;
 
-        width: calc(13.438em * 3);
+        width: 20%;
     }
 
     .project {
@@ -171,6 +171,10 @@ Projects page content
                     width, the p width isn't the same as the project-thumbnail. Weird...*/
                 width: 19.438em;
                 font-size: 0.688em;
+                
+                @media screen and (max-width: base_variables.$breakpoint-small) {
+                    font-size: .7rem;
+                }
             }
         }
 
