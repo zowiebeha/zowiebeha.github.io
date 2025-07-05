@@ -2,11 +2,20 @@
 
 ## Todo
 
+✅ homepage fix uncentered socials on mobile
+
+attributions uncentered list
+
+projects won't shrink for mobile
+(maybe the project list is too big)
+
 🚧 Use BEM
 
 Make site cross-compatible with older MacOS desktops using old Safari browser versions.
     🚧 Figure out which version of MacOS / Safari the site breaks at.
     SCSS's nested style feature should help with outdated browser cross-compatibility
+
+If i resize the browser to be phone-sized, my site breaks; but it looks fine on mobile
 
 Ensure that favicon is DPI, device & network responsive
 
