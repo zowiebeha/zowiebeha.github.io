@@ -34,16 +34,21 @@ Projects page content
 .project-container {
   display: grid;
   grid: auto-flow dense/repeat(3, 1fr);
-  gap: 2.375rem;
+  gap: var(--project-gap);
+  /* If items overflow container, make them do so in a centered way. */
+  justify-items: center;
+  justify-content: center;
   margin-top: 2.625em;
-  width: 80%;
+  --project-width: 14.2375rem;
+  --project-gap: 2.375rem;
+  width: 70%;
+  width: calc(var(--project-width) * 3 + var(--project-gap) * 2);
 }
 @media screen and (max-width: 960px) {
   .project-container {
     grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    justify-content: center;
     width: 60%;
+    width: calc(var(--project-width) * 2 + var(--project-gap) * 1);
   }
 }
 @media screen and (max-width: 640px) {
@@ -51,7 +56,8 @@ Projects page content
     grid-template-columns: 1fr;
     justify-items: center;
     justify-content: center;
-    width: 40%;
+    width: 30%;
+    width: calc(var(--project-width) * 1);
   }
 }
 .project-container .project {

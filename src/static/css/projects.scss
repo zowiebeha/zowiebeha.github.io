@@ -43,20 +43,21 @@ Projects page content
     // figure dense out
     grid: auto-flow dense / repeat(3, 1fr);
     gap: var(--project-gap);
+    
+    /* If items overflow container, make them do so in a centered way. */
+    justify-items: center;
+    justify-content: center;
 
     margin-top: 2.625em;
-
+    
     --project-width: 14.2375rem;
     --project-gap: 2.375rem;
     
     width: 70%; // fallback
     width: calc(var(--project-width) * 3 + var(--project-gap) * 2);
-    /* magic number. this code def needs a rewrite */
 
     @media screen and (max-width: base_variables.$breakpoint-medium) {
         grid-template-columns: 1fr 1fr;
-        justify-items: center;
-        justify-content: center;
 
         width: 60%; // fallback
         width: calc(var(--project-width) * 2 + var(--project-gap) * 1);
