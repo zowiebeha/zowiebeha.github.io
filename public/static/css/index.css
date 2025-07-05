@@ -370,7 +370,7 @@ About section
 }
 @media screen and (max-width: 640px) {
   .content__details .social-text {
-    padding-right: 0;
+    padding: 0.5rem;
   }
 }
 

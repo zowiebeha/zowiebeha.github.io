@@ -58,7 +58,7 @@ About section
         }
         @media screen and (max-width: base_variables.$breakpoint-small) {
             // actual center on mobile
-            padding-right: 0;
+            padding: .5rem;
         }
     }
 }
