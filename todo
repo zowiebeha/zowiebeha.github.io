@@ -2,63 +2,52 @@
 
 ## Todo
 
-✅ homepage fix uncentered socials on mobile
-
-✅ attributions uncentered list
-
-✅ projects won't shrink for mobile
-    (it used fixed units for sizing that were too large on mobile)
-
-✅ Projects are off-center a bit at a small laptop screen width
-    (the project container used fixed units for its width)
-
-Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
-
-Fix the horizontal scroll bar issue
-    (probably a fixed unit somewhere)
-
-🚧 Use BEM
-
-✅ Make site cross-compatible with older MacOS desktops using old Safari browser versions.
-    ✅ Figure out which version of MacOS / Safari the site breaks at.
-    ✅ SCSS's nested style feature should help with outdated browser cross-compatibility
-       I think this may have solved it?
-       In addition to great architectural changes.
-       How is grid support in Safari version 15.6?
-
-Ensure that favicon is DPI, device & network responsive
-
-❗ Add bandwidth & dpi responsive images
-
 ❗ Fix font size on mobile
     (on the devtools emulator at least, it often appears weird.)
     Test the site on a real mobile device
     
+    (
+        might have been a fluke resulting from to an old issue with a very long horizontal scrollbar
+        on the projects page due to a fixed project container width
+    )
+    
 Learn why spaces within path/file names are not valid HTML5
 
-Fix tooltip script's Content Security Policy issue
-
-Fix the introduction-sequence "software developer" subtext accessibility issue
-
-🚧 Use REM units
-
-Standardize all sizing and font units to common multiples
+All:
+    Soon:
+        Re-learn why flex is used instead of grid for one of the 2x sticky design patterns
+            (header content footer, then within content there is another for the date modified paragraph)
+        Fix the horizontal scroll bar issue
+            (probably a fixed unit somewhere)
+        🚧 Use BEM
+        🚧 Use REM units
+        Standardize all sizing and font units to common multiples
+        
+Projects:
+    Soon:
+        ❗ Add bandwidth & dpi responsive project images
+        Fix tooltip script's Content Security Policy issue
+        Fix use of em units
+        ❗🚧 Full code review and remove / update as fit
+    Later:
+        Improve accessibility for tooltip
 
 Base:
-    think about and adjust subheader ordering if needed
-    Fix introduction-sequence accessibility
+    Soon:
+        ❗ Add bandwidth & dpi responsive headshot image
+        Fix the introduction-sequence "software developer" subtext accessibility issue
+        Think about and adjust subheader ordering if needed
+
 Index:
-    fix messy index font size dependent on viewport width
+    Later:
+        Fix messy index font size dependent on viewport width
 
-Attributions
-    fix attributions CSS link hover weird hacks, list width weird hack to achieve link effect
+Attributions:
+    Later:
+        Fix attributions CSS link hover weird hacks, list width weird hack to achieve link effect
+        
 
-Projects:
-    Improve accessibility for tooltip
-    Fix use of em units
-    ❗ Code review and remove / update as fit
-
-Improve CI/CD pipeline
+(big) Improve CI/CD pipeline
     include assets and html under src/
     
     NPM Script Steps:
@@ -113,3 +102,23 @@ Improve CI/CD pipeline
 ✅ Remove JS DOMContentLoaded event listener since we now defer.
 
 ✅ Use an IIFE for an anonymous scope instead.
+
+✅ Make site cross-compatible with older MacOS desktops using old Safari browser versions.
+    ✅ Figure out which version of MacOS / Safari the site breaks at.
+    ✅ SCSS's nested style feature should help with outdated browser cross-compatibility
+       I think this may have solved it?
+       In addition to great architectural changes.
+       
+       ❓How is grid support in Safari version 15.6?
+       
+✅ homepage fix uncentered socials on mobile
+
+✅ attributions uncentered list
+
+✅ projects won't shrink for mobile
+    (it used fixed units for sizing that were too large on mobile)
+
+✅ Projects are off-center a bit at a small laptop screen width
+    (the project container used fixed units for its width)
+
+✅ Ensure that favicon is DPI, device & network responsive
