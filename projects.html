@@ -5,14 +5,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icon files & manifest.json generated via https://numberchomper.com/FaviconGenerator -->
 
-    <link rel="icon" type="image/x-icon" href="./public/static/img/favicon.ico">
+    <!--
+        We could use Microsoft specific Metro Tile meta tags.
+        However Metro Tiles supposedly use apple-touch-icon links
+        ... for icons if the msapplication-x meta tags are undefined.
+        
+        We could use apple-touch-icon links to supposedly target
+        Microsoft Metro Tile icons if msapplication-x meta tags are undefined.
+        This would target both Safar versions < 15.4 && Windows == 8.0 Metro Tiles.
+        
+        I want to test this out first though. Safari versions < 15.4 may also
+        ... look for a root favicon.ico.
+        
+        https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
+    -->
+        
+    <meta name="msapplication-TileColor" content="#512BD4">
+    <meta name="msapplication-TileImage" content="/public/static/favicons/favicon-152x152.png">
+
+    <!-- Google's recommended icon sizes (48x48, 192x192) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="./public/static/favicons/favicon-48x48.png">
+
+    <!-- manifest.json for device PWAs (home screen web apps) and Safari versions >= 15.4 -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- SVG Icon -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="./public/static/favicons/favicon.svg">
+
+    <!-- Chrome Android tab color & Discord rich embed border color -->
+    <meta name="theme-color" content="#512BD4">
+
     <title>Projects - Zowie Beha</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap">
 
     <!-- Styles -->
     <link rel="stylesheet" href="./public/static/css/base/base.css">
@@ -93,8 +124,7 @@
                 <div class="project">
                     <a class="project__link" target="_blank" href="https://github.com/applesea2/Cake-Shop">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/cake-shop.png"
+                            <img class="thumbnail__img" src="./public/static/img/cake-shop.png"
                                 alt="An image of an orange background with a line of text in the centered which displays 'Under Construction'.">
                         </div>
 
@@ -132,8 +162,7 @@
                 <div class="project">
                     <a class="project__link" target="_blank" href="https://github.com/1zzowiebeha/guessit">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/guessit.png"
+                            <img class="thumbnail__img" src="./public/static/img/guessit.png"
                                 alt="A webpage with a heading reading 'Guessit!', a form asking the user to guess a number between 0 and 100, and many toast notifications in the bottom right to notify the user of their actions.">
                         </div>
 
@@ -147,8 +176,8 @@
                                     alt="An SVG image of the CSS3 Logo">
                             </div>
                             <div class="icon">
-                                <img class="icon__img" data-tooltip="JavaScript" src="./public/static/svg/javascript.svg"
-                                    alt="An SVG image of the JavaScript Logo">
+                                <img class="icon__img" data-tooltip="JavaScript"
+                                    src="./public/static/svg/javascript.svg" alt="An SVG image of the JavaScript Logo">
                             </div>
                         </div>
 
@@ -164,8 +193,7 @@
                 <div class="project">
                     <a class="project__link" target="_blank" href="https://github.com/1zzowiebeha/tile-draw">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/tile-draw.png"
+                            <img class="thumbnail__img" src="./public/static/img/tile-draw.png"
                                 alt="A webpage with a heading reading 'Grid Draw' and a form to create a tiled grid of colored cells or reset existing cells back to their original color. The empty grid area shows large text reading 'Create your Grid' with an arrow pointing to the form above it.">
                         </div>
 
@@ -179,8 +207,8 @@
                                     alt="An SVG image of the CSS3 Logo">
                             </div>
                             <div class="icon">
-                                <img class="icon__img" data-tooltip="JavaScript" src="./public/static/svg/javascript.svg"
-                                    alt="An SVG image of the JavaScript Logo">
+                                <img class="icon__img" data-tooltip="JavaScript"
+                                    src="./public/static/svg/javascript.svg" alt="An SVG image of the JavaScript Logo">
                             </div>
                         </div>
 
@@ -194,12 +222,9 @@
                 </div>
 
                 <div class="project">
-                    <a class="project__link" 
-                       target="_blank"
-                       href="./projects/store/index.html">
+                    <a class="project__link" target="_blank" href="./projects/store/index.html">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/storefront.png"
+                            <img class="thumbnail__img" src="./public/static/img/storefront.png"
                                 alt="An image of an index page for a pet supplies shopping site.">
                         </div>
 
@@ -224,10 +249,10 @@
                 </div>
 
                 <div class="project">
-                    <a class="project__link" target="_blank" href="https://github.com/1zzowiebeha/Matching-Game/tree/main">
+                    <a class="project__link" target="_blank"
+                        href="https://github.com/1zzowiebeha/Matching-Game/tree/main">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/blazorapp.png"
+                            <img class="thumbnail__img" src="./public/static/img/blazorapp.png"
                                 alt="An image of a 4x4 set of green tiles containing a centered emoji, each with a corresponding pair somewhere in the array.">
                         </div>
 
@@ -241,8 +266,8 @@
                                     alt="An SVG image of the CSS3 Logo">
                             </div>
                             <div class="icon">
-                                <img class="icon__img" data-tooltip="JavaScript" src="./public/static/svg/javascript.svg"
-                                    alt="An SVG image of the JavaScript Logo">
+                                <img class="icon__img" data-tooltip="JavaScript"
+                                    src="./public/static/svg/javascript.svg" alt="An SVG image of the JavaScript Logo">
                             </div>
                             <div class="icon icon--medium">
                                 <img class="icon__img" data-tooltip="C#" src="./public/static/svg/csharp.svg"
@@ -263,8 +288,7 @@
                 <div class="project">
                     <a class="project__link" target="_blank" href="https://github.com/1zzowiebeha/learning_log">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/djangoapp.png"
+                            <img class="thumbnail__img" src="./public/static/img/djangoapp.png"
                                 alt="An image of a 4x4 set of green tiles containing a centered emoji, each with a corresponding pair somewhere in the array.">
                         </div>
 
@@ -301,10 +325,10 @@
                 </div>
 
                 <div class="project">
-                    <a class="project__link" target="_blank" href="https://web.archive.org/web/20241122232546/citw.lcc.edu/~behaz/exercise8.html">
+                    <a class="project__link" target="_blank"
+                        href="https://web.archive.org/web/20241122232546/citw.lcc.edu/~behaz/exercise8.html">
                         <div class="project__thumbnail">
-                            <img class="thumbnail__img"
-                                src="./public/static/img/todo_app.png"
+                            <img class="thumbnail__img" src="./public/static/img/todo_app.png"
                                 alt="An image of a list of todo tasks, an add item form, and delete buttons on the right of each task.">
                         </div>
 
@@ -318,8 +342,8 @@
                                     alt="An SVG image of the CSS3 Logo">
                             </div>
                             <div class="icon">
-                                <img class="icon__img" data-tooltip="JavaScript" src="./public/static/svg/javascript.svg"
-                                    alt="An SVG image of the JavaScript Logo">
+                                <img class="icon__img" data-tooltip="JavaScript"
+                                    src="./public/static/svg/javascript.svg" alt="An SVG image of the JavaScript Logo">
                             </div>
                             <div class="icon">
                                 <img class="icon__img" data-tooltip="jQuery" src="./public/static/svg/jquery.svg"
