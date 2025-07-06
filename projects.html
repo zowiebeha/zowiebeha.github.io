@@ -8,16 +8,15 @@
     <!-- Icon files & manifest.json generated via https://numberchomper.com/FaviconGenerator -->
 
     <!--
-        We could use Microsoft specific Metro Tile meta tags.
-        However Metro Tiles supposedly use apple-touch-icon links
-        ... for icons if the msapplication-x meta tags are undefined.
-        
         We could use apple-touch-icon links to supposedly target
-        Microsoft Metro Tile icons if msapplication-x meta tags are undefined.
-        This would target both Safar versions < 15.4 && Windows == 8.0 Metro Tiles.
+        Microsoft Windows == 8.0 Metro Tile icons if msapplication-x meta tags are undefined.
+        Possibly Windows == 8.1, but I'm not sure.
+        
+        This would target both Safari versions < 15.4 && Windows == 8.0 Metro Tiles.
         
         I want to test this out first though. Safari versions < 15.4 may also
         ... look for a root favicon.ico.
+        Additionally, this is the only way to supply a TileColor for Windows == 8.0.
         
         https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
     -->
