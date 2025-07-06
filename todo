@@ -57,12 +57,53 @@ Projects:
     Improve accessibility for tooltip
     Fix use of em units
     ❗ Code review and remove / update as fit
+
+Improve CI/CD pipeline
+    include assets and html under src/
+    
+    NPM Script Steps:
+        1. Notice change to assets | html under src/
+        2. Reflect update/move/delete change to public/
+        
+        3. Validate HTML via the w3c validator.
+           * Raise a pull request error if validation fails
+        
+        6. Lint SCSS files
+           * Raise an error upon merge if SCSS Linter raises an error   
+        
+        4. Notice change to SCSS files under src/
+        5. Build SCSS file if it is updated.
+           Move CSS output if source file is moved.
+           Delete CSS output if source file is removed.
+           
+           * Raise an error upon merge if SCSS errors
+           * .gitignore public/static/css for commits since the CI/CD pipeline will do it for me
+           
+        6. Validate CSS output (probably not necessary since SCSS will error if it's invalid)
+           
+        7. Lint JS files
+           * Raise a pull request error if JS Linter raises an error
+
+        8. Strip HTML/CSS/JS of comments
+        9. Minify HTML/CSS/JS
+
+        10. Integrate this whenever a pull request is merged into any branch.
+        11. Integrate this whenever a commit is made to any branch.
+        12. Integrate this for my local environment whenever I edit a file
+            * install an editor JS Linter, SCSS Linter
+            * SCSS --watch command + source move/delete reflection to public functionality
+            * HTML/CSS validation functionality
+    
     
 ## Completed
 
 ✅ Use SCSS variables for breakpoint values
 
 ✅ Add a favicon
+    Add favicon choices for lots of different devices
+    Old versions of iOS may require apple-touch-icon links,
+    but they may also use the root's favicon.ico.
+    If something like an old Roku TV stick requires an apple touch icon I'll add it for fun :)
 
 ✅ Move the super "Zowie Beha" & subtext "software developer" to be under
     ... the headshot image at the center of the screen.
