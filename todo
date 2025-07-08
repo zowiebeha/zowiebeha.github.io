@@ -2,6 +2,13 @@
 
 ## Todo
 
+remove img/favicon* files that are unused
+
+remove projects-old.html in bem-conversion
+
+merge main into dev, main into bem-conversion with --rebase
+checkout an old version and test with playwright/browserling
+
 ❗ Fix font size on mobile
     (on the devtools emulator at least, it often appears weird.)
     Test the site on a real mobile device
@@ -23,12 +30,15 @@ All:
         🚧 Use REM units
         Standardize all sizing and font units to common multiples
         
+        Implement Open Graph Protocol
+        
 Projects:
-    Soon:
+    Of utmost importance:
         ❗ Add bandwidth & dpi responsive project images
+        ❗🚧 Full code review and remove / update as fit
+    Soon:
         Fix tooltip script's Content Security Policy issue
         Fix use of em units
-        ❗🚧 Full code review and remove / update as fit
     Later:
         Improve accessibility for tooltip
 
