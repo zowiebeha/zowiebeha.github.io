@@ -109,26 +109,6 @@ Projects page content
                 
                 position: relative;
             }
-            /* Only works on non-replaced elements (if the image fails to load) */
-            img.thumbnail__img::after {
-                content: "Image source not found [404]";
-                text-align: center;
-                display: block;
-                color: black;
-                /* Use red color for error  */
-                background: base_variables.$document-bg-color;
-                background: rgb(255, 128, 128);
-                width: 100%;
-                height: 100%;
-                
-                display: grid;
-                place-items: center;
-                
-                /* Put over-top the broken image (broken img icon takes up a lot of height for some reason) */
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
         }
 
         .icons {
