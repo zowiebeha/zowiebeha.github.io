@@ -2,12 +2,13 @@
 
 ## Todo
 
-remove img/favicon* files that are unused
+✅ remove img/favicon* files that are unused
 
-remove projects-old.html in bem-conversion
+✅ remove projects-old.html in bem-conversion
 
-merge main into dev, main into bem-conversion with --rebase
-checkout an old version and test with playwright/browserling
+✅ merge main into dev, main into bem-conversion with --rebase
+
+checkout an old version of the site and test with playwright/browserling
 
 ❗ Fix font size on mobile
     (on the devtools emulator at least, it often appears weird.)
