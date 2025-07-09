@@ -84,6 +84,12 @@ Projects page content
   height: 9.375rem;
   border-radius: 14px;
   object-fit: cover;
+  /* Display document color behind image for a nice visual
+  when image progressively loads due to low bandwidth */
+  background: white;
+  /* Hide broken image alt text */
+  color: white;
+  position: relative;
 }
 .project-container .project .icons {
   width: 13.438rem;

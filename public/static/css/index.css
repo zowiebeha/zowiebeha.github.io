@@ -25,6 +25,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  background: white;
+}
+
 /* ===========
 Sticky header & Footer
 ============== */
@@ -113,9 +117,7 @@ Main
 ============== */
 #page-content {
   /* A single line where we can use margin-top: auto; */
-  /* With grid, we would need a single track (1fr / 1fr),
-  ???????
-  ... additional div to act as a single item,
+  /* With grid, we would need an additional div to act as a single item,
   which would let use use margin-top: auto;. More markup. Better than flex?
   maybe ... I just don't like nested divs that serve little purpose.  */
   display: flex;
@@ -133,18 +135,27 @@ Main
   /* Mobile content__subheader */
   grid: auto-flow/1fr;
 }
-#page-content .content__subheader .img--headshot {
-  max-width: 7.25rem;
-  max-height: 7.25rem;
+#page-content .content__subheader img.img--headshot {
+  width: 7.25rem;
+  height: 7.25rem;
   border-radius: 100%;
   border: 3px solid #1D1B2C;
+  /* Use document background color for nicer visuals when
+  the device progressively downloads chunks of an image */
+  background: white;
+  /* Hide broken img alt text */
+  color: white;
   filter: drop-shadow(0 4px 4.8px rgba(29, 27, 44, 0.5411764706));
   object-fit: cover;
-  position: relative;
-  top: -2.3rem;
   /* Mobile headshot image */
-  top: 0;
   margin-top: 0.5rem;
+  /* Only applies to non-replaced elements (broken img) */
+}
+#page-content .content__subheader img.img--headshot::after {
+  /* Top padding to have a visual center (not mathematical) */
+  /* Left/Right padding to cause broken image text to wrap for readability */
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  font-size: 0.9rem;
 }
 #page-content .content__subheader .intro-sequence {
   justify-self: left;
@@ -204,6 +215,25 @@ Main
   order: 1;
   filter: drop-shadow(0 2px 1.7px rgba(0, 0, 0, 0.2039215686));
   margin-top: 1rem;
+}
+
+/* Only works on non-replaced elements (if an image fails to load) */
+img::after {
+  content: "Image source not found [404]";
+  text-align: center;
+  display: block;
+  color: black;
+  /* Use red color for error  */
+  background: white;
+  background: rgb(255, 128, 128);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  /* Put over-top the broken image (broken img icon takes up a lot of height for some reason) */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #page-footer {

@@ -100,6 +100,14 @@ Projects page content
                 height: 9.375rem;
                 border-radius: 14px;
                 object-fit: cover;
+                
+                /* Display document color behind image for a nice visual
+                when image progressively loads due to low bandwidth */
+                background: base_variables.$document-bg-color;  
+                /* Hide broken image alt text */
+                color: base_variables.$document-bg-color;  
+                
+                position: relative;
             }
         }
 
