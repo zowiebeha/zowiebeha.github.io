@@ -25,6 +25,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  background: white;
+}
+
 /* ===========
 Sticky header & Footer
 ============== */
@@ -113,9 +117,7 @@ Main
 ============== */
 #page-content {
   /* A single line where we can use margin-top: auto; */
-  /* With grid, we would need a single track (1fr / 1fr),
-  ???????
-  ... additional div to act as a single item,
+  /* With grid, we would need an additional div to act as a single item,
   which would let use use margin-top: auto;. More markup. Better than flex?
   maybe ... I just don't like nested divs that serve little purpose.  */
   display: flex;
