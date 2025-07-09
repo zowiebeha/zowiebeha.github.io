@@ -38,7 +38,7 @@ Projects page content
   /* If items overflow container, make them do so in a centered way. */
   justify-items: center;
   justify-content: center;
-  margin-top: 2.625em;
+  margin-top: 2rem;
   --project-width: 14.2375rem;
   --project-gap: 2.375rem;
   width: 70%;
@@ -64,7 +64,6 @@ Projects page content
   width: fit-content;
   /* prevent flicker on hover by easing the color from transparent */
   outline: 1px solid transparent;
-  padding: 0.4em;
   border-radius: 4px;
   transition: 0.3s ease-out outline-color;
 }
@@ -72,8 +71,8 @@ Projects page content
   outline: 1px solid rgb(187, 186, 186);
 }
 .project-container .project .project__thumbnail {
-  width: 13.438em;
-  height: 10.313em;
+  width: 13.438rem;
+  height: 10.313rem;
   border-radius: 14px;
   background-color: #1D1B2C;
   display: flex;
@@ -81,48 +80,48 @@ Projects page content
   align-items: center;
 }
 .project-container .project .project__thumbnail img.thumbnail__img {
-  width: 12.5em;
-  height: 9.375em;
+  width: 12.5rem;
+  height: 9.375rem;
   border-radius: 14px;
   object-fit: cover;
 }
 .project-container .project .icons {
-  width: 13.438em;
-  height: 1.5em;
+  width: 13.438rem;
+  height: 1.5rem;
   border-radius: 5px;
   background-color: #1D1B2C;
-  margin-top: 0.688em;
-  margin-bottom: 0.938em;
+  margin-top: 0.688rem;
+  margin-bottom: 0.938rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.125em;
+  gap: 1.125rem;
   /* why does setting width/height to the same value show the full svg,
       whereas aspect-ratio cuts part of it off? */
 }
 .project-container .project .icons .icon {
-  width: 2.125em;
-  height: 2.125em;
+  width: 2.125rem;
+  height: 2.125rem;
   /* jquery circle is kind of small. make it a bit larger to 
          be around the same size as the other icons
       */
 }
 .project-container .project .icons .icon img.icon__img {
-  width: 2.125em;
-  height: 2.125em;
+  width: 2.125rem;
+  height: 2.125rem;
   object-fit: cover;
 }
 .project-container .project .icons .icon img.icon__img[title=jQuery] {
-  width: 2.255em;
-  height: 2.255em;
+  width: 2.255rem;
+  height: 2.255rem;
 }
 .project-container .project .icons .icon.icon--medium {
-  width: 2.525em;
-  height: 2.525em;
+  width: 2.525rem;
+  height: 2.525rem;
 }
 .project-container .project .icons .icon.icon--medium img.icon__img {
-  height: 2.525em;
-  width: 2.525em;
+  height: 2.525rem;
+  width: 2.525rem;
 }
 .project-container .project .icons .icon.icon--long {
   height: 2.525em;
@@ -134,12 +133,13 @@ Projects page content
   object-fit: contain;
 }
 .project-container .project .project__info {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.3125em;
+  /* Grid auto makes a row track for each item by default.
+  (grid-auto-flow). Basically flex-direction: column; but shorter syntax. */
+  display: grid;
+  row-gap: 0.3125rem;
 }
 .project-container .project .project__info h2.info__heading {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   margin-top: 0;
   line-height: 0.75em;
 }
@@ -147,7 +147,7 @@ Projects page content
   /* not sure why when I set the width equal to the project-thumbnail
       width, the p width isn't the same as the project-thumbnail. Weird...*/
   width: 19.438em;
-  font-size: 0.688em;
+  font-size: 0.688rem;
 }
 @media screen and (max-width: 640px) {
   .project-container .project .project__info p.info__text {
@@ -157,16 +157,19 @@ Projects page content
 .project-container .project a.project__link {
   color: black;
   text-decoration: none;
-  width: 100%;
-  height: 100%;
-  /* fill entire container instead of just inline 
-      makes the whole container (even spots without content)
-      clickable rather than just the children's element boxes
+  padding: 0.4rem;
+  /*
+      Inline elements can only contain other inline elements by default.
+      Set the link to display flex (block container, flex children)
+      ... so that we can have HTML5 compliance
+      ... and have block children children in the clickable area.
+      Also so we can position the block children.
+      We could also do inline-flex, but that would be more characters.
+      Many ways to pet the cat.
       https://stackoverflow.com/questions/8160494/how-to-make-a-whole-div-clickable-in-html-and-css-without-javascript
-      */
+  */
   display: flex;
   flex-direction: column;
-  /* center nested items */
   align-items: center;
 }
 
