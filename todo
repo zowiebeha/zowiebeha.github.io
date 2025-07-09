@@ -26,7 +26,7 @@ All:
             (header content footer, then within content there is another for the date modified paragraph)
         Fix the horizontal scroll bar issue
             (probably a fixed unit somewhere)
-        🚧 Use BEM
+        ✅ Use BEM
         🚧 Use REM units
         Standardize all sizing and font units to common multiples
         
@@ -39,6 +39,7 @@ Projects:
     Soon:
         Fix tooltip script's Content Security Policy issue
         Fix use of em units
+        ✅ 🚧 Full code review and remove / update as fit
     Later:
         Improve accessibility for tooltip
 
