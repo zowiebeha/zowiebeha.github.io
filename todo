@@ -2,6 +2,8 @@
 
 ## Todo
 
+<hr> or <div class="hr">?
+
 ❗ Fix font size on mobile
     (on the devtools emulator at least, it often appears weird.)
     Test the site on a real mobile device
@@ -24,7 +26,7 @@ All:
         Standardize all sizing and font units to common multiples
         
         Implement Open Graph Protocol
-        
+
 Projects:
     Of utmost importance:
         ❗ Add bandwidth & dpi responsive project images
