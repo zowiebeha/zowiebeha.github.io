@@ -24,8 +24,6 @@ All:
         ✅ Use BEM
         🚧 Use REM units
         Standardize all sizing and font units to common multiples
-        
-        Implement Open Graph Protocol
 
 Projects:
     Of utmost importance:
@@ -140,3 +138,5 @@ Attributions:
 ✅ merge main into dev, main into bem-conversion with --rebase
 
 ✅ checkout an old version of the site and test with playwright/browserling
+
+✅ Implement Open Graph Protocol
