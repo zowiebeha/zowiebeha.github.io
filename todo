@@ -55,7 +55,7 @@ Attributions:
         Fix attributions CSS link hover weird hacks, list width weird hack to achieve link effect
         
 
-(big) Improve CI/CD pipeline
+🚧 (big) Improve CI/CD pipeline
     include assets and html under src/
     
     NPM Script Steps:
@@ -118,6 +118,7 @@ Attributions:
        In addition to great architectural changes.
        
        ❓How is grid support in Safari version 15.6?
+       Tested via Playwright: It works as written so it's good.
        
 ✅ homepage fix uncentered socials on mobile
 

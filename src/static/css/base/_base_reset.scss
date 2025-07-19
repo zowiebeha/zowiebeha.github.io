@@ -39,6 +39,10 @@ Sticky header & Footer
         100% instead of 100vw, as 100vw includes the space under a vertical scrollbar.
         and when the page extends onto the vertical scrollbar's area, a horizontal scroll bar appears,
         which we do not want.
+        
+        read these sources to fully understand and confirm:
+            https://www.freecodecamp.org/news/html-page-width-height/
+            https://stackoverflow.com/questions/13569610/vertical-scrollbar-leads-to-horizontal-scrollbar
     */
     width: 100%;
     height: 100vh;
