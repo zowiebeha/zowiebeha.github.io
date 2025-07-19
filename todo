@@ -2,6 +2,8 @@
 
 ## Todo
 
+<hr> or <div class="hr">?
+
 ❗ Fix font size on mobile
     (on the devtools emulator at least, it often appears weird.)
     Test the site on a real mobile device
@@ -22,17 +24,19 @@ All:
         ✅ Use BEM
         🚧 Use REM units
         Standardize all sizing and font units to common multiples
-        
-        Implement Open Graph Protocol
-        
+
 Projects:
     Of utmost importance:
         ❗ Add bandwidth & dpi responsive project images
-        ❗🚧 Full code review and remove / update as fit
+            So tedious D:
+            I could just learn JavaScript and let Astro do the automatic
+                ... conversion instead. One day I'd still need to re-learn
+                ... srcset and <picture> when I apply this pattern to
+                ... user uploaded images.
+        ✅ Full code review and remove / update as fit
     Soon:
         Fix tooltip script's Content Security Policy issue
         Fix use of em units
-        ✅ 🚧 Full code review and remove / update as fit
     Later:
         Improve accessibility for tooltip
 
@@ -134,3 +138,5 @@ Attributions:
 ✅ merge main into dev, main into bem-conversion with --rebase
 
 ✅ checkout an old version of the site and test with playwright/browserling
+
+✅ Implement Open Graph Protocol
