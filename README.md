@@ -3,7 +3,7 @@
 <img width="1888" height="888" alt="chrome_Fc2m0WCKSl" src="https://github.com/user-attachments/assets/40793120-d7cb-403f-a57d-abb3b8fac962" />
 
 ## Live Link:
-Visit this [hyperlink](https://1zzowiebeha.github.io/) to view the homepage.
+Visit this [hyperlink](https://zowiebeha.github.io/) to view the homepage.
 
 ## Roadmap
 
