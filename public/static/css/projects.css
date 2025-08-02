@@ -33,7 +33,7 @@ Projects page content
 ============== */
 .project-container {
   display: grid;
-  grid: auto-flow dense/repeat(3, 1fr);
+  grid: auto/repeat(3, 1fr);
   gap: var(--project-gap);
   /* If items overflow container, make them do so in a centered way. */
   justify-items: center;
@@ -102,41 +102,6 @@ Projects page content
   justify-content: center;
   align-items: center;
   gap: 1.125rem;
-  /* why does setting width/height to the same value show the full svg,
-      whereas aspect-ratio cuts part of it off? */
-}
-.project-container .project .icons .icon {
-  width: 2.125rem;
-  height: 2.125rem;
-  /* jquery circle is kind of small. make it a bit larger to 
-         be around the same size as the other icons
-      */
-}
-.project-container .project .icons .icon img.icon__img {
-  width: 2.125rem;
-  height: 2.125rem;
-  object-fit: cover;
-}
-.project-container .project .icons .icon img.icon__img[title=jQuery] {
-  width: 2.255rem;
-  height: 2.255rem;
-}
-.project-container .project .icons .icon.icon--medium {
-  width: 2.525rem;
-  height: 2.525rem;
-}
-.project-container .project .icons .icon.icon--medium img.icon__img {
-  height: 2.525rem;
-  width: 2.525rem;
-}
-.project-container .project .icons .icon.icon--long {
-  height: 2.525em;
-  width: 3em;
-}
-.project-container .project .icons .icon.icon--long img.icon__img {
-  height: 2.525em;
-  width: 3em;
-  object-fit: contain;
 }
 .project-container .project .project__info {
   /* Grid auto makes a row track for each item by default.
@@ -177,6 +142,8 @@ Projects page content
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%; /* fill the whole of the parent (.project) instead of fit-content */
 }
 
 /*# sourceMappingURL=projects.css.map */

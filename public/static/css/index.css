@@ -39,6 +39,10 @@ Sticky header & Footer
       100% instead of 100vw, as 100vw includes the space under a vertical scrollbar.
       and when the page extends onto the vertical scrollbar's area, a horizontal scroll bar appears,
       which we do not want.
+
+      read these sources to fully understand and confirm:
+          https://www.freecodecamp.org/news/html-page-width-height/
+          https://stackoverflow.com/questions/13569610/vertical-scrollbar-leads-to-horizontal-scrollbar
   */
   width: 100%;
   height: 100vh;
@@ -314,6 +318,44 @@ p.last-modified {
   }
 }
 
+.icon {
+  width: 2.125rem;
+  height: 2.125rem;
+  /* jquery circle is kind of small. make it a bit larger to 
+                     be around the same size as the other icons
+                  */
+}
+.icon img.icon__img {
+  width: 2.125rem;
+  height: 2.125rem;
+  object-fit: cover;
+}
+.icon img.icon__img[title=jQuery] {
+  width: 2.255rem;
+  height: 2.255rem;
+}
+
+/* why does setting width/height to the same value show the full svg,
+                whereas aspect-ratio cuts part of it off? */
+.icon.icon--medium {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.icon.icon--medium img.icon__img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.icon.icon--large {
+  height: 3rem;
+  width: 3rem;
+}
+.icon.icon--large img.icon__img {
+  height: 3rem;
+  width: 3rem;
+  object-fit: contain;
+}
+
 /* ===========
 Keyframes
 ============== */
@@ -361,6 +403,26 @@ Keyframes
 
 .mt-05 {
   margin-top: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.g-1rem {
+  gap: 1rem;
+}
+
+.mt-1rem {
+  margin-top: 1rem;
 }
 
 .text-center {

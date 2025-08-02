@@ -55,6 +55,9 @@ Attributions:
         Fix attributions CSS link hover weird hacks, list width weird hack to achieve link effect
         
 
+* We will need something like Webpack for this:
+* Webpack can also automate srcset and automatic DPI downsizing for responsive images.
+
 🚧 (big) Improve CI/CD pipeline
     include assets and html under src/
     
