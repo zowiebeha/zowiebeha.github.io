@@ -41,6 +41,10 @@ About section
         }
     }
     
+    /* Very subtle visual oomph to differentiate the text from the lines below it */
+    .detail__paragraph:first-child {
+        transform: skew(-.01deg, -.01deg);
+    }
     /* First p looks odd with an indent since it is a single line.
     Indent only paragraphs below it (multi-line ones in the DOM) */
     .detail__paragraph:nth-child(n+2) {
