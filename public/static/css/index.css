@@ -443,6 +443,7 @@ Home page content
 About section
 ============== */
 .content__details {
+  /* Very subtle visual oomph to differentiate the text from the lines below it */
   /* First p looks odd with an indent since it is a single line.
   Indent only paragraphs below it (multi-line ones in the DOM) */
 }
@@ -464,6 +465,9 @@ About section
   .content__details .detail__paragraph {
     width: 80%;
   }
+}
+.content__details .detail__paragraph:first-child {
+  transform: skew(-0.01deg, -0.01deg);
 }
 .content__details .detail__paragraph:nth-child(n+2) {
   text-indent: 2rem;

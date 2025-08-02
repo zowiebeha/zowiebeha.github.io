@@ -27,12 +27,12 @@ All:
 
 Projects:
     Of utmost importance:
-        ❗ Add bandwidth & dpi responsive project images
-            So tedious D:
+        ✅ Add bandwidth & dpi responsive project images
             I could just learn JavaScript and let Astro do the automatic
                 ... conversion instead. One day I'd still need to re-learn
                 ... srcset and <picture> when I apply this pattern to
                 ... user uploaded images.
+            Update: Used a generator website. Learn srcset & <picture>/<source> again to double check and understand completely.
         ✅ Full code review and remove / update as fit
     Soon:
         Fix tooltip script's Content Security Policy issue
