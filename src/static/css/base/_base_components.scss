@@ -356,6 +356,10 @@ p.last-modified {
 
 }
 
+a:hover .icon__img--hover-effect {
+    opacity: .8;
+}
+
 .icon {
     width: 2.125rem;
     height: 2.125rem;
@@ -364,6 +368,8 @@ p.last-modified {
         width: 2.125rem;
         height: 2.125rem;
         object-fit: cover;
+        
+        transition: opacity .4s ease-out;
     }
 
     /* jquery circle is kind of small. make it a bit larger to 

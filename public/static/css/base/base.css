@@ -318,6 +318,10 @@ p.last-modified {
   }
 }
 
+a:hover .icon__img--hover-effect {
+  opacity: 0.8;
+}
+
 .icon {
   width: 2.125rem;
   height: 2.125rem;
@@ -329,6 +333,7 @@ p.last-modified {
   width: 2.125rem;
   height: 2.125rem;
   object-fit: cover;
+  transition: opacity 0.4s ease-out;
 }
 .icon img.icon__img[title=jQuery] {
   width: 2.255rem;
