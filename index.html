@@ -98,7 +98,15 @@
                     Home:
                 </h1>
 
-                <img class="img--headshot" src="./public/static/img/headshot.jpg" alt="A photo of Zowie">
+               <img
+                class="img--headshot"
+                sizes="(max-width: 779px) 100vw, 779px"
+                srcset="
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_200.jpg 200w,
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_682.jpg 682w,
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_779.jpg 779w"
+                src="./public/static/img/headshot/headshot_loszdo_c_scale,w_779.jpg"
+                alt="A headshot photo of Zowie in a black suit">
 
                 <div class="intro-sequence">
                     <p class="intro-sequence__name" aria-label="hi, i'm Zowie">
