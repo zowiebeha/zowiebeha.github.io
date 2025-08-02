@@ -40,8 +40,14 @@ Projects page content
 
 .project-container {
     display: grid;
-    // figure dense out
-    grid: auto-flow dense / repeat(3, 1fr);
+    // grid-template-rows defaults to auto, but it's shorter to write this way.
+    // grid-auto-flow defaults to row, so items will fill each track along the
+    //  inline axis before filling the next track below.
+    // additional tracks will be created according to grid-auto-flow
+    //   if there are so many items that they would overflow the grid.
+    // I wish we had masonry layout, since it would allow cells further along the block axis
+    //  to utilize the available free space along the block axis within each cell.
+    grid: auto / repeat(3, 1fr);
     gap: var(--project-gap);
     
     /* If items overflow container, make them do so in a centered way. */
@@ -124,51 +130,8 @@ Projects page content
             justify-content: center;
             align-items: center;
             gap: 1.125rem;
-
-            .icon {
-                width: 2.125rem;
-                height: 2.125rem;
-
-                img.icon__img {
-                    width: 2.125rem;
-                    height: 2.125rem;
-                    object-fit: cover;
-                }
-
-                /* jquery circle is kind of small. make it a bit larger to 
-                       be around the same size as the other icons
-                    */
-                img.icon__img[title="jQuery"] {
-                    width: 2.255rem;
-                    height: 2.255rem;
-                }
-            }
-
-            /* why does setting width/height to the same value show the full svg,
-                whereas aspect-ratio cuts part of it off? */
-            .icon.icon--medium {
-                width: 2.525rem;
-                height: 2.525rem;
-
-                img.icon__img {
-                    height: 2.525rem;
-                    width: 2.525rem;
-                }
-            }
-
-            .icon.icon--long {
-                height: 2.525em;
-                width: 3em;
-
-                img.icon__img {
-                    height: 2.525em;
-                    width: 3em;
-                    object-fit: contain;
-
-                }
-            }
         }
-
+        
         .project__info {
             /* Grid auto makes a row track for each item by default.
             (grid-auto-flow). Basically flex-direction: column; but shorter syntax. */
@@ -212,6 +175,8 @@ Projects page content
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+            height: 100%; /* fill the whole of the parent (.project) instead of fit-content */
         }
     }
 }
