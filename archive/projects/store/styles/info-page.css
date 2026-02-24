@@ -1,0 +1,25 @@
+/*
+author: Zowie Beha
+license: Copyright © 2024 Zowie Beha
+*/
+
+
+/* ===========
+Info-Page content
+============== */
+
+main p {
+    text-align: center;
+    font-size: large;
+}
+
+main h1 {
+    font-size: xx-large;
+}
+
+main {
+    margin-bottom: 12em;
+}
+/* ===========
+Responsive Info-page content
+============== */

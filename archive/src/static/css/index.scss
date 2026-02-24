@@ -1,0 +1,68 @@
+@use "./base/base";
+@use "./base/base_variables";
+
+/* ===========
+Home page content
+============== */
+
+#particles-js {
+    width: 100%;
+    height: 10em; /* don't completely squish the footer */
+    border: 1px solid #1d1b2c1d;
+    
+    margin-bottom: 2rem;
+}
+
+/* ===========
+About section
+============== */
+
+.content__details {
+    .detail__paragraph,
+    .social-text {
+        padding: .5rem;
+        width: 55%;
+        margin: 0 auto;
+    }
+    
+    .detail__paragraph,
+    .social-text {
+        // Improvement:
+        /* make smaller as screen shrinks.
+        how to make bigger as screen grows, but clamp to a min? 
+        prob an algorithm with nested min/maxes 
+        inspired by bootstrap */
+        font-size: min(1.2rem, calc(1rem + .6vw));
+    }
+    
+    .detail__paragraph {
+        @media screen and (max-width: base_variables.$breakpoint-medium) {
+            width: 80%;
+        }
+    }
+    
+    /* Very subtle visual oomph to differentiate the text from the lines below it */
+    .detail__paragraph:first-child {
+        transform: skew(-.01deg, -.01deg);
+    }
+    /* First p looks odd with an indent since it is a single line.
+    Indent only paragraphs below it (multi-line ones in the DOM) */
+    .detail__paragraph:nth-child(n+2) {
+        text-indent: 2rem;
+    }
+    
+    .social-text {
+        text-indent: none;
+        text-align: center;
+        
+        @media screen and (max-width: base_variables.$breakpoint-medium) {
+            // visual center
+            // not sure how to explain this. it's weird..
+            padding-right: 1.5rem;
+        }
+        @media screen and (max-width: base_variables.$breakpoint-small) {
+            // actual center on mobile
+            padding: .5rem;
+        }
+    }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icon files & manifest.json generated via https://numberchomper.com/FaviconGenerator -->
+
+    <!--
+            We could use apple-touch-icon links to supposedly target
+            Microsoft Windows == 8.0 Metro Tile icons if msapplication-x meta tags are undefined.
+            Possibly Windows == 8.1, but I'm not sure.
+            
+            This would target both Safari versions < 15.4 && Windows == 8.0 Metro Tiles.
+            
+            I want to test this out first though. Safari versions < 15.4 may also
+            ... look for a root favicon.ico.
+            Additionally, this is the only way to supply a TileColor for Windows == 8.0.
+            
+            https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7
+        -->
+    <meta name="msapplication-TileColor" content="#512BD4">
+    <meta name="msapplication-TileImage" content="/public/static/favicons/favicon-152x152.png">
+
+    <!-- Google's recommended icon sizes (48x48, 192x192) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="./public/static/favicons/favicon-48x48.png">
+
+    <!-- manifest.json for device PWAs (home screen web apps) and Safari versions >= 15.4 -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- SVG Icon -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="./public/static/favicons/favicon.svg">
+
+    <!-- Chrome Android tab color & Discord rich embed border color -->
+    <meta name="theme-color" content="#512BD4">
+
+    <title>Home - Zowie Beha</title>
+
+    <!-- Open Graph Protocol -->
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="https://zowiebeha.github.io/public/static/favicons/favicon-48x48.png">
+    <meta name="og:image:type" content="image/png">
+    <meta name="og:article:modified_time" content="2025-07-19">
+    <meta name="og:image:alt" content="White serif-font text against a purple background reading 'Zowie', pronounced like the name 'Zoey'.">
+    <meta name="og:site_name" content="Zowie Beha's website">
+    <meta name="og:title" content="Home">
+    <meta name="og:description" content="The website's hompage">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./public/static/css/base/base.css">
+    <link rel="stylesheet" href="./public/static/css/index.css">
+
+    <!-- Scripts -->
+    <script defer src="./public/static/js/vendor/particles.min.js"></script>
+    <script defer src="./public/static/js/index-particlesjs.js"></script>
+</head>
+
+<body>
+    <div class="fluid-layout">
+        <header id="page-header">
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav__item ml-auto">
+                        <p>
+                            <a class="nav__link" href="index.html">
+                                home
+                            </a>
+                        </p>
+                    </li>
+                    <li class="nav__item">
+                        <p>
+                            <a class="nav__link" href="projects.html">
+                                projects
+                            </a>
+                        </p>
+                    </li>
+                    <li class="nav__item">
+                        <p>
+                            <a class="nav__link" target="_blank" href="./public/media/Beha-Zowie-Resume.pdf">
+                                resume ⬇️
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="page-content">
+            <div class="content__subheader">
+                <h1 class="page-title">
+                    Home:
+                </h1>
+
+               <img
+                class="img--headshot"
+                sizes="(max-width: 779px) 100vw, 779px"
+                srcset="
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_200.jpg 200w,
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_682.jpg 682w,
+                ./public/static/img/headshot/headshot_loszdo_c_scale,w_779.jpg 779w"
+                src="./public/static/img/headshot/headshot_loszdo_c_scale,w_779.jpg"
+                alt="A headshot photo of Zowie in a black suit">
+
+                <div class="intro-sequence">
+                    <p class="intro-sequence__name" aria-label="hi, i'm Zowie">
+                        <span aria-hidden="true">
+                            <span>hi, </span>
+                            <span>i'm</span>
+                            <span>Zowie</span>
+                        </span>
+                    </p>
+                    <small class="intro-sequence__career" aria-label="software developer">
+                        <span aria-hidden="true">
+                            <span>software</span>
+                            <span>developer</span>
+                        </span>
+                    </small>
+                </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <!-- ParticlesJS -->
+            <div id="particles-js"></div>
+
+            <!-- Content details -->
+            <div class="content__details">
+                <p class="detail__paragraph">
+                    I fell in love with programming from a very young age.
+                </p>
+                <p class="detail__paragraph">
+                    Passionate about working within teams, mentoring, and coding.
+                </p>
+                <p class="detail__paragraph">
+                    I love helping others, and enjoy working with open sourcerers and businesses alike to solve problems they face.
+                </p>
+                <p class="detail__paragraph">
+                    I am always open to new opportunities, and welcome all new contacts.
+                </p>
+
+                <h2 class="text-center">My Socials:</h2>
+                <div class="flex justify-center g-1rem mt-1rem">
+                    <div class="icon icon--medium">
+                        <a target="_blank" href="https://www.linkedin.com/in/zowie-beha-4b0498250/">
+                            <img class="icon__img icon__img--hover-effect" data-tooltip="HTML5" src="./public/static/svg/linkedin.svg"
+                                alt="An SVG image of the Linkedin Logo">
+                        </a>
+                    </div>
+                    <div class="icon icon--medium">
+                        <a target="_blank" href="https://github.com/zowiebeha">
+                            <img class="icon__img icon__img--hover-effect" data-tooltip="HTML5" src="./public/static/svg/github.svg"
+                                alt="An SVG image of the GitHub Octocat Logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <p class="last-modified">
+                Last modified <time datetime="2024-08-02">8/2/2025</time>
+            </p>
+        </main>
+
+        <footer id="page-footer">
+            <p>
+                <a class="footer__link" href="attributions.html">
+                    attributions
+                </a>
+            </p>
+
+            <p>
+                copyright &copy;2025 Zowie Beha
+            </p>
+
+            <p>
+                i ❣️ code
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

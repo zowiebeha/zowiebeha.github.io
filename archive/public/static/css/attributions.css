@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* ===========
+Attributions page content
+============== */
+.attribution-details {
+  margin-top: 2rem;
+  display: grid;
+  justify-content: center;
+}
+.attribution-details .attribution__heading {
+  font-size: 1.5em;
+}
+.attribution-details .attribution-list {
+  /* I wonder if there's a better way to
+      expand the text's size on hover, while keeping everything center
+      so that the list-style-type doesn't move due to the text
+      increasing the containing ul size...
+      maybe with an <a> wrapper div? */
+  width: 21rem;
+}
+@media screen and (max-width: 640px) {
+  .attribution-details .attribution-list {
+    width: 16rem;
+  }
+}
+.attribution-details .attribution-list .list__item {
+  color: #1D1B2C;
+}
+@media screen and (max-width: 640px) {
+  .attribution-details .attribution-list .list__item::marker {
+    /* We can't adjust the gap between the ::marker and the list item with precision: */
+    /* https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ */
+    font-size: 0px;
+  }
+  .attribution-details .attribution-list .list__item .item__text {
+    position: relative;
+    font-size: 1.3rem;
+  }
+  .attribution-details .attribution-list .list__item .item__text::before {
+    content: "•";
+    position: absolute;
+    left: -1em;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 1em;
+  }
+}
+.attribution-details .attribution-list .list__item .item__link {
+  color: #575dd4;
+  font-size: 0.888em;
+  transition: 0.2s color ease-out, 0.2s font-size ease-out;
+}
+.attribution-details .attribution-list .list__item .item__link:hover {
+  color: #85c9c8;
+  font-size: 0.898em;
+}
+.attribution-details .attribution-list .list__item .item__link:visited {
+  color: rgb(80, 21, 136);
+}
+
+/*# sourceMappingURL=attributions.css.map */

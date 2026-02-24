@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zowie Beha">
+        
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/products.css">
+        <link rel="icon" type="image/x-icon" href="images/icon.ico">
+        <title>Pet Supply Co. - Products</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <div class="justify-left">
+                        <a href="index.html">
+                            <li class="ml">
+                                <p>
+                                    Pet Supply Co.
+                                </p>
+                            </li>
+                        </a>
+                    </div>
+                    
+                    <div class="justify-center">
+                        <a href="products.html">
+                            <li class="ml">
+                                <p>
+                                    Products
+                                </p>
+                            </li>
+                        </a>
+                        
+                        <a href="static-page.html">
+                            <li class="ml">
+                                <p>
+                                    Cart
+                                </p>
+                            </li>
+                        </a>
+                    </div>
+                    
+                    <div class="justify-right">
+                        <a href="static-page.html">
+                            <li class="ml">
+                                <p>
+                                    Login
+                                </p>
+                            </li>
+                        </a>
+                        
+                        <a href="static-page.html">
+                            <li class="ml">
+                                <p>
+                                    Sign-up
+                                </p>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+                
+            </nav>
+            
+            <div class="search">
+                <form class="search" action="" method="GET">
+                    <!-- Labels are hidden via css but remain in doc for accessibility  -->
+                    <!-- Just to mimick a real site:  -->
+                    <input type="text" value="csrf-token" hidden>
+                    
+                    <input type="text" name="query" placeholder="Dog food..." id="search-box">
+                    <label for="search-box">Search query:</label>
+                    
+                    <input type="submit" value="" id="search-button">
+                    <label for="search-button">Search</label>
+                </form>
+            </div>
+        </header>
+        
+        <main>
+            <section id="products">
+                <h1>Products:</h1>
+                
+                <div class="product-flexbox">
+                    <div class="product-card">
+                        <a href="product1.html">
+                            <div class="info sale">
+                                <img
+                                srcset="
+                                images/dog-treats/dog-treats200w.jpg 200w,
+                                images/dog-treats/dog-treats407w.jpg 407w,
+                                images/dog-treats/dog-treats567w.jpg 567w, 
+                                "
+                                src="images/dog-treats/dog-treats.jpg"
+                                alt="A Paper Bag with Dog Treats on a Brown Table">
+                                
+                                <h2>
+                                    Dog Biscuits (12oz)
+                                </h2>
+                                
+                                <div class="bottom-info">
+                                    <p class="old-price">
+                                        $15.99
+                                    </p>
+                                    <p class="price">
+                                        $10.99
+                                    </p>
+                                    <p>
+                                        View Details <span class="arrow">&#10140;</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <a href="product2.html">
+                            <div class="info sale">
+                                <img
+                                srcset="
+                                images/ducks-in-a-row/ducks-in-a-row200w.jpg 200w,
+                                images/ducks-in-a-row/ducks-in-a-row404w.jpg 404w,
+                                images/ducks-in-a-row/ducks-in-a-row615w.jpg 615w, 
+                                "
+                                src="images/ducks-in-a-row/ducks-in-a-row.jpg"
+                                alt="Yellow Duckies in Line on a Concrete Floor">
+                                
+                                <h2>
+                                    Toy ducks (4 pack)
+                                </h2>
+                                
+                                <div class="bottom-info">
+                                    <p class="old-price">
+                                        $8.99
+                                    </p>
+                                    <p class="price">
+                                        $5.99
+                                    </p>
+                                    <p>
+                                        View Details <span class="arrow">&#10140;</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <a href="#">
+                            <div class="info">
+                                <img
+                                srcset="
+                                images/tuxedo-cat/tuxedo-cat200w.jpg 200w,
+                                images/tuxedo-cat/tuxedo-cat470w.jpg 470w,
+                                images/tuxedo-cat/tuxedo-cat673w.jpg 673w, 
+                                "
+                                src="images/tuxedo-cat/tuxedo-cat.jpg"
+                                alt="A Tuxedo Cat on the Floor">
+                                
+                                <h2 class="old-price">
+                                    Mouse race-track
+                                </h2>
+                                
+                                <div class="bottom-info">
+                                    <p class="old-price">
+                                        $19.99
+                                    </p>
+                                    <p>
+                                        Sold out
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                
+            </section>
+        </main>
+        
+        <footer>
+            <section class="portion-1">
+                <h2>Attributions:</h2>
+                <ul>
+                    <li>
+                        <p>
+                            This site downloads fonts from
+                            <a href="https://fonts.google.com">fonts.google.com.</a>
+                            All fonts are licensed under the Open Font License.
+                            No third-party code is used. 
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Orange Favicon created by Zowie Beha
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Sale corner banner created by Zowie Beha
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A Paper Bag with Dog Treats on a Brown Table by RDNE Stock project via
+                            <a href="https://www.pexels.com/photo/a-paper-bag-with-dog-treats-on-a-brown-table-7310213/">
+                                Pexels
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Yellow Duckies in Line on a Concrete Floor by Pixabay via
+                            <a href="https://www.pexels.com/photo/yellow-duckies-in-line-on-a-concrete-floor-106144/">
+                                Pexels
+                            </a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            A Tuxedo Cat on the Floor by Arina Krasnikova via
+                            <a href="https://www.pexels.com/photo/a-tuxedo-cat-on-the-floor-7726110/">
+                                Pexels
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- make this go under portion-1 and portion-3, and make it flex row -->
+            <!-- and make it responsive -->
+            <section class="portion-2">
+                <!-- <p class="author-note">
+                    Proudly created by <wbr>Zowie&nbsp;Beha&nbsp;<span class="heart">❤</span>
+                </p> -->
+                <p>
+                    <a href="about-us.html">
+                        About Us
+                    </a>
+                </p>
+                <p>
+                    <a href="privacy-policy.html">
+                        Privacy Policy
+                    </a>
+                </p>
+                <p>
+                    <a href="tos.html">
+                        Terms of Usage
+                    </a>
+                </p>
+            </section>
+            
+            <section class="portion-3">
+                <p>
+                    Copyright &copy; 2024 <wbr>Zowie&nbsp;Beha
+                </p>
+            </section>
+            
+        </footer>
+    </body>
+</html>
