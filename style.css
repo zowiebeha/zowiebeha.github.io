@@ -1,17 +1,41 @@
 /*
-    Make colors based off of image
-    Use CSS vars
-    EM or REM for text shadow?
-    
-    Sleep more (1am hours...)
+    Keep learning.
+    Copyright Zowie Beha 2026
 */
+
+/*
+    Big Todos:
+        - <picture> responsive image implementation
+        - relative color fix
+        - finish my learnings on viewports
+*/
+
+/* ====
+Variables
+======= */
+
+:root {
+    /*
+        Todo:
+            - Give each constituent value of the following colors a logical scale (multiples of 2)
+            ... and value relation to one another.
+    */
+    --color-white: rgb(238 240 241);
+    --color-black: rgb(20 21 21);
+    --color-selection: rgb(21 127 184 / 0.66);
+}
+
+/* ====
+Resets
+======= */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     
-    font-family: "Hanken Grotesk", "calibri", sans-serif;
+    color: var(--color-white);
+    font-family: "Hanken Grotesk", "Calibri", sans-serif;
     
     &::selection {
         background: rgba(21, 127, 184, 0.66);
@@ -23,23 +47,83 @@ html {
 }
 
 body {
+    /*
+        Todo:
+            - learn about viewports and about containing blocks, to understand how these heights works:
+                https://www.youtube.com/watch?v=xl9R8aTOW_I
+            - not sure why a height of 100vw differs in behavior compared to 100%...
+    */
     height: 100%;
-    /* learn about viewports and about containing blocks */
-    /* height: 100vw; */
     
     display: grid;
+    grid: 1fr max-content / auto-flow;
     place-items: center;
     
-    /* use image-set instead */
-    background-color: rgb(20, 21, 21);
-    background-image: url(./background.jpg);
-    background-position: center;
-    background-size: 50%;
-    background-repeat: no-repeat;
+    background: var(--color-black);
+    
+    /* Background image */
+    &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        
+        /*
+            Todo:
+            - Use a <picture> set instead, so that I can use `border-radius` on the
+            ... image box itself, rather than on the psuedo-element's box assumed size of the <body>.
+            
+            - Read the docs and use the `background` shorthand, rather than its consitutent properties.
+        */
+        background-image: url(./img/backgrounds/background.jpg);
+        background-position: center;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        outline: 2px solid red;
+        
+        border-radius: 100%;
+    }
 }
 
+a { transition: .2s text-shadow; }
+
 h1 {
-    color: rgb(238, 240, 241);
-    text-shadow: 0 2px .5em rgb(20, 21, 21);
     font-size: 2.5rem;
+    
+    text-shadow: 0 2px .75rem var(--color-black);
+}
+
+footer {
+    padding: 1rem;
+}
+
+/* ====
+Components
+======= */
+
+img#background-img {
+    border-radius: 100%;
+    filter: blur(2rem);
+}
+
+/* ====
+Utilities
+======= */
+
+/* CSS permits escaped Unicode characters within identifiers! */
+/*
+    Todo:
+    - Read these writings:
+        * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/ident#escaping_characters
+        * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/class
+*/
+a.hover\:glow {
+    text-shadow: 0 0 0 transparent;
+    transition: .2s text-shadow;
+    
+    &:hover {
+        /* i had this same problem before. i think it was syntax... */
+        text-shadow: 0 0 2px rgb(from var(--color-white) h s calc(l + 1%));
+    }
 }

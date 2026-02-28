@@ -1,0 +1,40 @@
+CName sometimes works when an alias doesn't, when one wants
+to point the root hostname to a different hostname
+
+Servers have CORs policies, which must be updated
+in order for external domains to receive content from them.
+
+It entails the HOST header of the request.
+
+http://developer.mozilla.org/en-US/docs/Web/Security/Attacks/Subdomain_takeover#how_do_they_happen
+
+I rent a domain (zowie.blog) and point a CName record to zowiebeha.github.io
+I visit zowie.blog
+the CName resolves zowiebeha.github.io to its IP, and returns the response from github
+
+github could respond in one of the following ways:
+
+❌returns a response without any checks
+    security risk, as the external site could iframe the site and make a typosquatted thing to
+    steal credentials
+
+❌returns a response only by checking that a CORs entry exists in their records
+    upon request to each page.
+    I guess they need load balancing and so they must use a proxy rather than
+    perform the CORs check on each subdomain? internal network structure doesn't permit this
+
+sees my HOST header from their proxy, directs me to either a 404
+    if CORs isn't enabled for my HOST in their system to map my host to one of their urls,
+    or to the correct page if someting is mapped to one of their urls.
+    
+    ^ shouldn't be a thing without verification, as anyone can steal my stuff.
+    should be disallowed. WTF github?
+
+sees my HOST header, and knows I own the domain because it always requires
+TXT record verification, and then directs me to either a 404
+    if CORs isn't enabled for my HOST in their system to map my host to one of their urls,
+    or to the correct page if someting is mapped to one of their urls.
+
+why is based on the HOST having proper CORs privileges, and a hashmap of host:code_base?
+why isn't it based on the HOST having proper CORs privileges, and what page the HOST wants to access?
+    I guess because then the HOST could iframe anything, steal credentials, typosquat, etc.
