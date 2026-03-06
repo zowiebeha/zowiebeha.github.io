@@ -5,8 +5,8 @@
 
 /*
     Big Todos:
-        - <picture> responsive image implementation
-        - relative color fix
+        - (soon) <picture> responsive image implementation
+        - (done) relative color fix
         - finish my learnings on viewports
 */
 
@@ -16,6 +16,8 @@ Variables
 
 :root {
     --color-white: rgb(224 240 240);
+    --color-off-white: rgb(from var(--color-white) r g b / .82);
+    --color-off-white2: rgb(from var(--color-white) r g b / .48);
     --color-black: rgb(32 32 32);
     --color-selection: rgb(32 128 192 / 0.64);
 }
@@ -29,7 +31,8 @@ Resets
     margin: 0;
     padding: 0;
     
-    color: var(--color-white);
+    color: var(--color-off-white);
+    
     font-family: "Hanken Grotesk", "Calibri", sans-serif;
     
     &::selection {
@@ -95,6 +98,7 @@ a { transition: .2s text-shadow; }
 
 h1 {
     font-size: 2.5rem;
+    color: var(--color-white);
 }
 
 h1, p {
@@ -119,24 +123,26 @@ Utilities
 ======= */
 
 /*
-Todo:
-    - Read these writings:
-        * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/ident#escaping_characters
-        * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/class
-        * https://blog.jim-nielsen.com/2019/dynamically-darken-a-color-in-css/
-        * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb
+    Todo:
+        - Read these writings:
+            * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/ident#escaping_characters
+            * https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/class
+            * https://blog.jim-nielsen.com/2019/dynamically-darken-a-color-in-css/
+            * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/rgb
+            * https://en.wikipedia.org/wiki/List_of_Unicode_characters
 */
 
 /* CSS permits escaped Unicode characters within identifiers! */
 /* Question: When was this feature supported and in which browsers? */
 a.hover\:glow {
     text-shadow: 0 0 0 transparent;
-    transition: .4s ease text-shadow;
+    transition: .4s ease text-shadow, .4s ease color;
     
     &:hover {
+        color: var(--color-white);
         text-shadow: 0 0 8px var(--color-white); /* fallback for older browsers */
         /* Input must be same color channel as the deconstructed output. */
         /* Question: May the deconstructed output differ from the color function used? */
-        text-shadow: 0 0 8px rgb(from var(--color-white) r g b / .48);
+        text-shadow: 0 0 8px var(--color-off-white2);
     }
 }
