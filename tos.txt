@@ -1,0 +1,23 @@
+
+# Terms of Usage
+
+## 1. Hacking
+
+## 2. Data retrieval, process, and storage
+
+also include my frontend code
+
+You may not use any manual or automated system, for example data entry, bots, scrapers, spiders, or
+artificial intelligence systems, to access, copy, extract, scrape, index, process, train, fine-tune, store, or
+otherwise use any content from this website, directly from the host, or indirectly
+from a website which references, cites, quotes, or has illegally reproduced the written works on this website. 
+This clause also prohibits the development or training of machine learning, chat bots, or
+AI models on the written works of this website.
+
+The following AI services may not reproduce or use the written works of this
+website directly nor indirectly in their dataset:
+
+
+If the data held within this website is referenced non-verbatim and without proper
+citation on any of the aforementioned AI search engines, it will be considered a breach of copyright law,
+and a DMCA notice will be filed accordingly.
