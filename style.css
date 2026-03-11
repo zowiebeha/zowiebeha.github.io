@@ -1,13 +1,22 @@
 /*
     Keep learning.
+    Never. Never. Never give up.
     Copyright Zowie Beha 2026
 */
 
 /*
+    [self-note]
     Big Todos:
-        - (soon) <picture> responsive image implementation
         - (done) relative color fix
+            Learn how it works in-depth with a mental model...
+        - (soon) <picture> responsive image implementation
+            I have my implementation
+            I want to write an article and complete my mental model..
         - finish my learnings on viewports
+        - Understand the problems here, and solve each and every one of them.. even if it makes me unhireable.
+        
+If I study hard and work as hard as possible to answer a problem, I will answer it.
+The same applies to project completion.
 */
 
 /* ====
@@ -31,12 +40,13 @@ Resets
     margin: 0;
     padding: 0;
     
-    color: var(--color-off-white);
+    color: var(--color-white);
     
     font-family: "Hanken Grotesk", "Calibri", sans-serif;
     
     &::selection {
         /*
+            [self-note]
             Question: Is it possible to transition the `::selection`'s background without JS?
             
             transition: .2s background;
@@ -50,31 +60,40 @@ Resets
 
 html {
     height: 100%;
+    /* [self-note] [question]: Why does this hide everything in the body (and not render over-top it?)? */
+    /* background-image: linear-gradient(to right, transparent); */
 }
 
 body {
     /*
+        [self-note]
         Todo:
             - learn about viewports and about containing blocks, to understand how these heights works:
                 https://www.youtube.com/watch?v=xl9R8aTOW_I
             - Research Question: not sure why a height of 100vw differs in behavior compared to 100%...
     */
     
-    height: 100%;
     
     display: grid;
-    grid: 1fr max-content / auto-flow;
+    grid: 1fr max-content / 1fr;
     place-items: center;
+    
+    height: 100%;
     
     background: var(--color-black);
     
+    /* if we position the #background-img outside of the <body>'s dimensions, do not produce a scrollbar as a result  */
+    /* figure this out: */
+    overflow: hidden;
+    
     /* Background image */
-    &::after {
+    /* [self-note] */
+    /* &::after {
         content: "";
         position: absolute;
         height: 100%;
         width: 100%;
-        z-index: -1;
+        z-index: -1; */
         
         /*
             Todo:
@@ -84,21 +103,20 @@ body {
             - Read the docs and use the `background` shorthand, rather than its consitutent properties.
         */
         
-        background-image: url(./img/backgrounds/background.jpg);
+        /* background-image: url(./img/backgrounds/background.jpg);
         background-position: center;
         background-size: 40%;
         background-repeat: no-repeat;
         outline: 2px solid red;
         
         border-radius: 100%;
-    }
+    } */
 }
 
 a { transition: .2s text-shadow; }
 
 h1 {
     font-size: 2.5rem;
-    color: var(--color-white);
 }
 
 h1, p {
@@ -107,15 +125,49 @@ h1, p {
 
 footer {
     padding: 1rem;
+    
+    /* replace color for <a> and <p> children of the <footer> */
+    * {
+        color: var(--color-off-white);
+    }
 }
+
+main {
+    /* [self-note] why does an element with width: auto; not size to be 100% of its grid track's width? */
+    /* [self-note] width: 100%; */
+    /* [self-note] I guess grid items fit their inline length to their content's inline length, rather than to their track inline length. */
+}
+
+/*
+[self-note]
+left off:
+    why is main so small?
+    why does setting overflow: hidden; on main
+    not hide the rest of the background image?
+    
+    do I need to set overflow: hidden on the body?
+*/
 
 /* ====
 Components
 ======= */
 
 img#background-img {
-    border-radius: 100%;
-    filter: blur(2rem);
+    position: absolute;
+    
+    /* [self-note] Position the element at the top of its initial containing block, rather than at the top of its containing block parent (<main>) */
+    /* [self-note] How to better explain this? How does it work like this when compared to a parent that has position: relative;? Learn more... */
+    /* top: 50%; */
+    top: -50%; /* how do i center it along the vertical axis? */
+    /* Center the image along the horizontal axis */
+    left: 50%; /* position inline-start face 50% from left */
+    transform: translate(-50%, 25%); /* translate left by 50% of its inline length to ensure it's centered in the middle of the screen */
+    
+    height: 150%;
+    
+    z-index: -1;
+    border-radius: 10%;
+    /* filter: blur(.25rem); */
 }
 
 /* ====
@@ -123,6 +175,7 @@ Utilities
 ======= */
 
 /*
+    [self-note]
     Todo:
         - Read these writings:
             * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/ident#escaping_characters
@@ -132,8 +185,8 @@ Utilities
             * https://en.wikipedia.org/wiki/List_of_Unicode_characters
 */
 
-/* CSS permits escaped Unicode characters within identifiers! */
-/* Question: When was this feature supported and in which browsers? */
+/* [self-note] CSS permits escaped Unicode characters within identifiers! */
+/* [self-note] Question: When was this feature supported and in which browsers? */
 a.hover\:glow {
     text-shadow: 0 0 0 transparent;
     transition: .4s ease text-shadow, .4s ease color;
@@ -142,7 +195,16 @@ a.hover\:glow {
         color: var(--color-white);
         text-shadow: 0 0 8px var(--color-white); /* fallback for older browsers */
         /* Input must be same color channel as the deconstructed output. */
-        /* Question: May the deconstructed output differ from the color function used? */
+        /* [self-note] Question: May the deconstructed output differ from the color function used? */
         text-shadow: 0 0 8px var(--color-off-white2);
     }
+}
+
+.position-relative {
+    position: relative;
+}
+
+h2 {
+    position: absolute;
+    width: 100%;
 }
