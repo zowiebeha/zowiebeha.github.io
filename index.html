@@ -4,9 +4,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Favicon Copyright 2026 Zowie Beha -->
+        <link rel="icon" href="./favicon.ico">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./static/css/style.css">
         
         <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,27 +21,31 @@
     <body>
         <main>
             <!-- Generated via https://www.responsivebreakpoints.com/ -->
-            <img
-                id="background-img"
-                sizes="(max-width: 3440px) 100vw, 3440px"
-                srcset="
-                ./images/background/background_otyz33_c_scale,w_480.jpg 480w,
-                ./images/background/background_otyz33_c_scale,w_1959.jpg 1959w,
-                ./images/background/background_otyz33_c_scale,w_2936.jpg 2936w,
-                ./images/background/background_otyz33_c_scale,w_3440.jpg 3440w"
-                src="./images/background/background_otyz33_c_scale,w_3440.jpg"
-                alt="A photographed overhead view of a starry blue night sky with black trees growing towards the center of the image from the image border">
+             <div id="debug" style="display: none;">
+                 <img
+                     id="background-img"
+                     sizes="(max-width: 3440px) 100vw, 3440px"
+                     srcset="
+                     ./static/images/background/background_otyz33_c_scale,w_480.jpg 480w,
+                     ./static/images/background/background_otyz33_c_scale,w_1959.jpg 1959w,
+                     ./static/images/background/background_otyz33_c_scale,w_2936.jpg 2936w,
+                     ./static/images/background/background_otyz33_c_scale,w_3440.jpg 3440w"
+                     src="./static/images/background/background_otyz33_c_scale,w_3440.jpg"
+                     alt="A photographed overhead view of a starry blue night sky with black trees growing towards the center of the image from the image border">
+             </div>
+             
+             <div id="psuedo-background-img"></div>
             
             <div class="position-relative">
                 <h1>zowie.blog</h1>
-                <p>I love you.</p>
+                <p>testing.</p>
             </div>
         </main>
         
         <footer>
             <p>
                 formerly
-                <a class="hover:glow" href="https://web.archive.org/web/20241211020651/https://citw.lcc.edu/~behaz/">
+                <a id="js-glow-animate" href="https://web.archive.org/web/20241211020651/https://citw.lcc.edu/~behaz/">
                     inetcode.xyz
                 </a>
             </p>
