@@ -297,17 +297,16 @@ Utilities
             * https://en.wikipedia.org/wiki/List_of_Unicode_characters
 */
 
+a {
+    text-shadow: 0 0 0 transparent;
+    transition: .4s ease color; 
+}
+
 /* [self-note] CSS permits escaped Unicode characters within identifiers! */
 /* [self-note] Question: When was this feature supported and in which browsers? */
 a.hover\:glow {
-    text-shadow: 0 0 0 transparent;
-    transition: .4s ease color;
-    
-    &:hover {
-        color: var(--color-white);
-        text-shadow: 0 0 .5em var(--color-off-white2); /* var(--color-off-white2) points to a deconstructed version of var(--color-white) */
-        animation: 1s flicker infinite alternate-reverse forwards running;
-    }
+    color: var(--color-white);
+    animation: 1s flicker-cycle infinite alternate-reverse forwards running;
 }
 
 /*
@@ -321,23 +320,49 @@ a.hover\:glow {
     Adding this declaration to the rule above would play the reverse animation upon page load, which isn't what we want.
 */
 a.unhover\:unglow {
-    animation: 1s flicker 1 reverse forwards paused;
+    animation: 1s remove-flicker 1 normal forwards running;
 }
 
-@keyframes flicker {
+@keyframes flicker-cycle {
+    from {
+        /* fallback for older browsers */
+        text-shadow: 0 0 .45em var(--color-off-white),
+                     0 0 .45em var(--color-off-white);
+        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
+        text-shadow: 0 0 .45em var(--color-off-white2),
+                     0 0 .45em var(--color-off-white2);
+    }
     to {
         /* fallback for older browsers */
         text-shadow: 0 0 .5em var(--color-white);
         /* --color-off-white2 points to a deconstructed and altered version of --color-white */
         text-shadow: 0 0 .5em var(--color-off-white2);
     }
+}
+
+@keyframes remove-flicker {
+    /* doesn't animate from current frame of cycle to transparent - only pre-defined values
+    
+    hack #1:
+        (for which we use the middle of the animation as the from rule
+        to have either one last flicker if the last frame of the cycle was near 0%, or a return to 0% if the
+        last frame of the cycle was positioned at or above 50% of the timeline's total frames.)
+        
+    non-hack option #2:
+        somehow animate from any arbitrary value to another without knowing the to...
+        JS-only maybe?
+    */
     from {
         /* fallback for older browsers */
         text-shadow: 0 0 .45em var(--color-off-white),
-                     .1em .2em .45em var(--color-off-white);
+                     0 0 .45em var(--color-off-white);
         /* --color-off-white2 points to a deconstructed and altered version of --color-white */
         text-shadow: 0 0 .45em var(--color-off-white2),
-                     .1em .2em .45em var(--color-off-white2);
+                     0 0 .45em var(--color-off-white2);
+    }
+    to {
+        /* fallback for older browsers */
+        text-shadow: 0 0 0 transparent;
     }
 }
 
