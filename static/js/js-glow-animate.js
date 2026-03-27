@@ -47,7 +47,7 @@ function getComputedTextShadowValue(element) {
     This would be a hassle to manage however, as we would need to first get the text shadow value from the
     glow animation, and then ensure the glow animation is removed?
 */
-function showTextShadow(element) {
+function showTextShadow(element, currentTextShadowValue) {
     if (currentTextShadowValue == "") {
         throw new Error(`\`text-shadow\` property not present in computed styles for element ${element}.`);
     }
@@ -82,14 +82,8 @@ function showTextShadow(element) {
  * Retrieves the current text shadow of an element,
  * then pauses all animations on the element & animates from
  * the retrieved text shadow values to a transparent shadow
- * 
- * Over-engineering at its finest :)
  */
-function hideTextShadow(element) {
-    debugger;
-
-    const currentTextShadowValue = getComputedTextShadowValue(element);
-    
+function hideTextShadows(element, currentTextShadowValue) {
     if (currentTextShadowValue == "") {
         throw new Error(`\`text-shadow\` property not present in computed styles for element ${element}.`);
     }
@@ -177,15 +171,19 @@ function hideTextShadow(element) {
 }
 
 anchorElement.addEventListener('mouseenter', () => {
+    anchorElement.classList.add('hover:glow');
 }, { once: true });
 
-// how to handle animations stepping overriding one another's properties?
+// how to handle animations overriding one another's properties?
+// does the transition negatively affect the animation?
 anchorElement.addEventListener('mouseleave', () => {
-    debugger;
-    const animation = hideAnimatedTextShadows(anchorElement);
+    console.log(anchorElement.getAnimations());
     
-    animation.addEventListener('animationend', () => {
+    const currentTextShadowValue = getComputedTextShadowValue(anchorElement);
+    anchorElement.classList.remove('hover:glow');
+    const animation = hideTextShadows(anchorElement, currentTextShadowValue);
+    
+    animation.addEventListener('finish', () => {
+        anchorElement.classList.add('hover:glow');
     });
-    // wait for animation to complete
-    // add the hover listener back again
 });

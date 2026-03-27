@@ -297,48 +297,35 @@ Utilities
             * https://en.wikipedia.org/wiki/List_of_Unicode_characters
 */
 
-.text-effect {
-    transition: 2s text-shadow, 2s background; 
-    
-    text-shadow: 0 2em 0 transparent, 0 2em 0 transparent;
-    &:hover {
-        background: red;
-        /* fallback for older browsers */
-        /* fallback for older browsers */
-        text-shadow: 0 2em 0 green,
-                     0 2em 0 green;
-        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 2em 0 green,
-                     0 2em 0 green;
-                     
-        animation: 1s 2s turn-blue 1 forwards;
-    }
-}
-
-@keyframes turn-blue {
-    from {
-        background: red;
-        /* fallback for older browsers */
-        text-shadow: 0 2em 0 green,
-                     0 2em 0 green;
-        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 2em 0 green,
-                     0 2em 0 green;
-    }
-    to {
-        background: blue;
-        /* fallback for older browsers */
-        text-shadow: 0 1em 0 green,
-                     0 1em 0 green;
-        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 1em 0 green,
-                     0 1em 0 green;
-    }
-}
-
 a {
-    text-shadow: 0 0 0 transparent;
+    text-shadow: 0 0 0 transparent,
+                 0 0 0 transparent;
     transition: .4s ease color, .4s text-shadow; 
+    
+    --shadowBlur: .45em;
+}
+
+@property --shadowBlur2 {
+    syntax: "<length>";
+    inherits: false;
+    /*
+        initial-value must be present.
+        it must also be computationally independent, thus we can't default to .45em.
+        
+        https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@property#description
+    */
+    /*
+        [question]:
+            Why is this computed value limitation in place?
+        [hypothesis]:
+            Maybe the engine requires some optimization that limits using dynamic properties like this?
+            But dynamic JS allows for classes to be added and for font-size to dynamically change.
+            
+            I can use em with css variables, and I can animate CSS variables...
+            
+            So why not with properties?
+    */
+    initial-value: 0;
 }
 
 /* [self-note] CSS permits escaped Unicode characters within identifiers! */
@@ -348,13 +335,24 @@ a.hover\:glow {
     
     &:hover {
         /* fallback for older browsers */
-        text-shadow: 0 0 .45em var(--color-off-white),
-                     0 0 .45em var(--color-off-white);
+        text-shadow:
+            0 0 var(--shadowBlur) var(--color-off-white),
+            0 0 var(--shadowBlur) var(--color-off-white);
         /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 0 .45em var(--color-off-white2),
-                     0 0 .45em var(--color-off-white2);
+        text-shadow:
+            0 0 var(--shadowBlur) var(--color-off-white2),
+            0 0 var(--shadowBlur) var(--color-off-white2);
                      
-        animation: 1s .4s flicker-cycle infinite alternate-reverse forwards running;
+        /*
+            [question]:
+                Why does the animation appear so choppy?
+            [hypothesis]:
+                Maybe when my laptop is not plugged in there is regression in visual fidelity?
+                > Nope, not that
+                
+                Maybe a browser rendering issue shared by Chrome & Firefox?
+        */
+        animation: 2s .4s flicker-cycle infinite alternate-reverse forwards running;
     }
 }
 
@@ -374,20 +372,22 @@ a.unhover\:unglow {
 
 @keyframes flicker-cycle {
     from {
-        /* fallback for older browsers */
-        text-shadow: 0 0 .45em var(--color-off-white),
-                     0 0 .45em var(--color-off-white);
-        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 0 .45em var(--color-off-white2),
-                     0 0 .45em var(--color-off-white2);
+        --shadowBlur: .55em;
+    }
+    20% {
+        --shadowBlur: .65em;
+    }
+    40% {
+        --shadowBlur: .50em;
+    }
+    60% {
+        --shadowBlur: .55em; 
+    }
+    80% {
+        --shadowBlur: .54em;
     }
     to {
-        /* fallback for older browsers */
-        text-shadow: 0 0 .5em var(--color-white),
-                     0 0 .5em var(--color-white);
-        /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 0 .5em var(--color-off-white2),
-                     0 0 .5em var(--color-off-white2);
+        --shadowBlur: .55em;
     }
 }
 
@@ -405,11 +405,13 @@ a.unhover\:unglow {
     */
     from {
         /* fallback for older browsers */
-        text-shadow: 0 0 .45em var(--color-off-white),
-                     0 0 .45em var(--color-off-white);
+        text-shadow:
+            0 0 .45em var(--color-off-white),
+            0 0 .45em var(--color-off-white);
         /* --color-off-white2 points to a deconstructed and altered version of --color-white */
-        text-shadow: 0 0 .45em var(--color-off-white2),
-                     0 0 .45em var(--color-off-white2);
+        text-shadow:
+            0 0 .45em var(--color-off-white2),
+            0 0 .45em var(--color-off-white2);
     }
     to {
         /* fallback for older browsers */
